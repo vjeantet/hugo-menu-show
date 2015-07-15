@@ -8,17 +8,12 @@
   </url>
   
   <url>
-    <loc>http://vjeantet.github.io/hugo-menu-show/amazon-aws/AutoScaling/</loc>
+    <loc>http://vjeantet.github.io/hugo-menu-show/amazon-aws/change-instance-type-in-autoscaling/</loc>
     <lastmod>2015-07-15T22:17:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vjeantet.github.io/hugo-menu-show/Amazon-AWS/</loc>
-    <lastmod>2015-07-15T22:17:00+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://vjeantet.github.io/hugo-menu-show/amazon-aws/Change-Instance-Type-in-AutoScaling/</loc>
+    <loc>http://vjeantet.github.io/hugo-menu-show/amazon-aws/autoscaling/</loc>
     <lastmod>2015-07-15T22:17:00+02:00</lastmod>
   </url>
   
@@ -28,87 +23,92 @@
   </url>
   
   <url>
+    <loc>http://vjeantet.github.io/hugo-menu-show/amazon-aws/</loc>
+    <lastmod>2015-07-15T22:17:00+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://vjeantet.github.io/hugo-menu-show/backup/duplicity/</loc>
     <lastmod>2015-07-15T22:17:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vjeantet.github.io/hugo-menu-show/Backup/</loc>
+    <loc>http://vjeantet.github.io/hugo-menu-show/backup/</loc>
     <lastmod>2015-07-15T22:17:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vjeantet.github.io/hugo-menu-show/emails/Checking-FQDN-Reverse-DNS-PTR-MX-record/</loc>
+    <loc>http://vjeantet.github.io/hugo-menu-show/emails/clients/applemail/</loc>
     <lastmod>2015-07-15T22:17:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vjeantet.github.io/hugo-menu-show/emails/clients/AppleMail/</loc>
+    <loc>http://vjeantet.github.io/hugo-menu-show/emails/checking-fqdn-reverse-dns-ptr-mx-record/</loc>
     <lastmod>2015-07-15T22:17:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vjeantet.github.io/hugo-menu-show/emails/clients/Mozilla-Thunderbird/</loc>
+    <loc>http://vjeantet.github.io/hugo-menu-show/emails/clients/mozilla-thunderbird/</loc>
     <lastmod>2015-07-15T22:17:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vjeantet.github.io/hugo-menu-show/emails/Clients/</loc>
+    <loc>http://vjeantet.github.io/hugo-menu-show/emails/clients/</loc>
     <lastmod>2015-07-15T22:17:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vjeantet.github.io/hugo-menu-show/emails/DKIM-with-Postfix/</loc>
+    <loc>http://vjeantet.github.io/hugo-menu-show/emails/postfix-queue-management/</loc>
     <lastmod>2015-07-15T22:17:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vjeantet.github.io/hugo-menu-show/emails/Postfix-Queue-Management/</loc>
+    <loc>http://vjeantet.github.io/hugo-menu-show/emails/dkim-with-postfix/</loc>
     <lastmod>2015-07-15T22:17:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/Antivirus/</loc>
+    <loc>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/imap/</loc>
     <lastmod>2015-07-15T22:17:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/IMAP/</loc>
+    <loc>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/antivirus/</loc>
     <lastmod>2015-07-15T22:17:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/POP/</loc>
+    <loc>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/pop/</loc>
     <lastmod>2015-07-15T22:17:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/Mailserver-Port-Numbers/</loc>
+    <loc>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/</loc>
     <lastmod>2015-07-15T22:17:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/Mail-Server-Testing/</loc>
+    <loc>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/packages-conventions/</loc>
     <lastmod>2015-07-15T22:17:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/Packages-Conventions/</loc>
+    <loc>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mailserver-port-numbers/</loc>
     <lastmod>2015-07-15T22:17:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/Sieve-Mail-Filtering-Setup/</loc>
+    <loc>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/sieve-mail-filtering-setup/</loc>
     <lastmod>2015-07-15T22:17:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vjeantet.github.io/hugo-menu-show/emails/ServerSetup/</loc>
+    <loc>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/</loc>
     <lastmod>2015-07-15T22:17:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vjeantet.github.io/hugo-menu-show/Emails/</loc>
+    <loc>http://vjeantet.github.io/hugo-menu-show/emails/</loc>
     <lastmod>2015-07-15T22:17:00+02:00</lastmod>
   </url>
   
