@@ -1,0 +1,11 @@
+name = "MenuMenu"
+license = "GNU General Public License v2 or later"
+licenselink = ""
+description = "menu examples"
+tags = []
+features = ["breadcrumbs","menus","sibling"]
+
+[author]
+    name = "Valere JEANTET"
+    homepage = "http://vjeantet.fr"
+

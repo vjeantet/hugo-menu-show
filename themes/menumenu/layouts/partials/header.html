@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html lang="{{ with .Site.LanguageCode}}{{ . }}{{ else }}en-US{{end}}">
+<head>
+	<meta charset="UTF-8">
+	<title>{{ if .IsPage }}{{ .Title }} &middot; {{ end }}{{ .Site.Title }}</title>
+	<style>
+    .related-links li {
+        display: list-item;
+        text-align: -webkit-match-parent;
+        margin-bottom:.3125rem
+    }
+    .related-links ul {
+        display: block;
+        list-style-type: disc;
+        -webkit-margin-before: 1em;
+        -webkit-margin-after: 1em;
+        -webkit-margin-start: 0px;
+        -webkit-margin-end: 0px;
+        -webkit-padding-start: 40px;
+    }
+	</style>
+
+</head>
+
+<body >
+<div class="header-main">
+	<h1><a href="{{ .Site.BaseUrl }}/index.html" rel="home">{{ .Site.Title }}</a></h1>
+</div>

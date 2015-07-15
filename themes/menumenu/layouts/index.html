@@ -1,0 +1,59 @@
+{{ partial "header.html" . }}
+
+<style>
+	li {
+		display: list-item;
+		text-align: -webkit-match-parent;
+		margin-bottom:.3125rem
+	}
+	ul {
+		display: block;
+		list-style-type: disc;
+		-webkit-margin-before: 1em;
+		-webkit-margin-after: 1em;
+		-webkit-margin-start: 0px;
+		-webkit-margin-end: 0px;
+		-webkit-padding-start: 40px;
+	}
+</style>
+
+<div id="content" >
+
+<ul>
+{{ range .Site.Menus.main }}
+	<li><a href="{{.URL}}">{{.Name}}</a></li>
+	    {{ if .HasChildren }}
+	    <ul>
+	    {{ range .Children }}
+	    <li><a href="{{.URL}}">{{ .Name }} </a></li>
+			{{ if .HasChildren }}
+		    <ul>
+		    {{ range .Children }}
+		    <li><a href="{{.URL}}">{{ .Name }}</a></li>
+				{{ if .HasChildren }}
+			    <ul>
+			    {{ range .Children }}
+			    <li><a href="{{.URL}}">{{ .Name }} </a></li>
+					{{ if .HasChildren }}
+				    <ul>
+				    {{ range .Children }}				    
+				    <li><a href="{{.URL}}">{{ .Name }} </a></li>
+				    {{ end }}
+				    </ul>
+				    {{ end }}
+			    {{ end }}
+			    </ul>
+			    {{ end }}
+		    {{ end }}
+		    </ul>
+	    	{{ end }}
+	    {{ end }}
+	    </ul>
+	    {{ end }}
+{{end}}
+</ul>
+
+</div><!-- #content -->
+
+
+{{ partial "footer.html" . }}
