@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<title>Auto Scaling &middot; Hugo plays with menus</title>
+	<style>
+    .related-links li {
+        display: list-item;
+        text-align: -webkit-match-parent;
+        margin-bottom:.3125rem
+    }
+    .related-links ul {
+        display: block;
+        list-style-type: disc;
+        -webkit-margin-before: 1em;
+        -webkit-margin-after: 1em;
+        -webkit-margin-start: 0px;
+        -webkit-margin-end: 0px;
+        -webkit-padding-start: 40px;
+    }
+	</style>
+
+</head>
+
+<body >
+<div class="header-main">
+	<h1><a href="http://vjeantet.github.io/hugo-menu-show/index.html" rel="home">Hugo plays with menus</a></h1>
+</div>
+
+<aside>
+
+<style type="text/css">
+	aside li.active::after {
+		content: "<";
+	}
+</style>
+
+	
+<h1 >Navigation</h1>
+<ul>
+
+
+
+	<li  class="active">
+    <a href="http://vjeantet.github.io/hugo-menu-show/amazon-aws/">Amazon AWS</a>
+	</li>
+        
+        
+        
+	    
+	    <ul>
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    </ul>
+	    
+	    
+	    
+
+
+	<li  class="">
+    <a href="http://vjeantet.github.io/hugo-menu-show/backup/">Backup</a>
+	</li>
+        
+	    
+
+
+	<li  class="">
+    <a href="http://vjeantet.github.io/hugo-menu-show/emails/">Emails</a>
+	</li>
+        
+	    
+
+</ul>
+
+
+</aside>
+
+<div>
+    <nav>
+        <strong>Breadcrumbs : </strong><a href="http://vjeantet.github.io/hugo-menu-show">Home</a>  > <a href='http://vjeantet.github.io/hugo-menu-show/amazon-aws/'>Amazon AWS</a>  > Auto Scaling
+    </nav>
+    <h1 >Auto Scaling</h1>
+
+    <p>AutoScaling allow you to automatically add or remove your EC2 instances according to your defined condition. To setup autoscaling we create autoscaling group and defined launch configuration for that group so, whenever any instance added in to group it will use that launch configuration .</p>
+
+<p>Following are the step to setup auto scaling on AWS</p>
+
+<ol>
+<li>Create AMI of EC2 instance</li>
+</ol>
+
+<p>AMI (Amazon Machine Image) is used while new instance is created automatically. We define unique AMI id (e.g ami-xxxxxxxx) in launch configuration.</p>
+
+<p>Following is the first step to create AMI (there is alternative option also).</p>
+
+<p>create-aim-1
+First step to create AMI
+In next step it will ask for Image Name, description and other options. Please use help for more info.</p>
+
+<p>create-aim-2
+Final step to create AMI
+After clicking Create Image button, It will start create image process and give you unique AMI id something like ami-xxxxxxxx that will required in create launch configuration. It will take time to create image depend on the size of your EBS.</p>
+
+<ol>
+<li>Create launch configuration</li>
+</ol>
+
+<p>This is the required step to setup autoscaling. As name state, Launch configuration is used when any instance is added to autoscaling group. There are some required field like launch-configuration-name, image-id, instance-type, key, security-groups.</p>
+
+<p>Lets create launch configuration.</p>
+
+<p>Step 1 : Go to Launch Config Page and Start Create Launch configuration</p>
+
+<p>create-new-launch-configuration-1
+Step 1 : Go to Launch Config Page and Start Create Launch configuration
+Step 2 : Select AMI</p>
+
+<p>create-new-launch-configuration-2
+Step 2 : Select AMI
+OR you select existing EMI if you are already created</p>
+
+<p>create-new-launch-configuration-3
+Step 2 : Choose Existing AMI
+Step 3 : Choose Instance Type</p>
+
+<p>create-new-launch-configuration-4
+Step 3: Choose Instance Type
+Step 4 : Name launch configuration &amp; other info</p>
+
+<p>create-new-launch-configuration-5
+Step 4: Name launch configuration &amp; other info
+Step 5 : Choose Storage</p>
+
+<p>create-new-launch-configuration-6
+Step 5: Choose Storage
+Step 6 : Choose Security Group</p>
+
+<p>create-new-launch-configuration-7
+Step 6: Choose Security Group
+Step 7 : Review</p>
+
+<p>create-new-launch-configuration-8
+Step 7: Review
+Step 8 : Choose Key pair</p>
+
+<p>create-new-launch-configuration-9
+Step 8: Choose Key pair
+If you are use cli then type following command to create launch config</p>
+
+<p>aws autoscaling create-launch-configuration &ndash;launch-configuration-name aws-as-conf &ndash;image-id ami-xxxxxxxx &ndash;instance-type m1.large &ndash;key myPrivate &ndash;security-groups mySecurityGroup</p>
+
+<p>To List all launch configuration</p>
+
+<p>aws autoscaling describe-launch-configurations</p>
+
+<ol>
+<li>Create Autoscaling Group</li>
+</ol>
+
+<p>Autoscaling group use launch configuration to create instance and add it into group. There are some require parameters like availability-zones, min/max-size, load-balancer-names, health-check-type etc</p>
+
+<p>@TODO : UI Steps</p>
+
+<p>If you are use cli then type following command to</p>
+
+<p>aws autoscaling create-auto-scaling-group &ndash;auto-scaling-group-name test-autoscal-group &ndash;launch-configuration aws-as-conf &ndash;availability-zones us-east-1a us-east-1b &ndash;min-size 1 &ndash;max-size 5 &ndash;load-balancer-names test-lb &ndash;health-check-type ELB &ndash;health-check-grace-period 300 &ndash;tag &ldquo;k=Name, v=Test AS, p=true&rdquo;</p>
+
+<p>Add instance policy :</p>
+
+<p>aws autoscaling put-scaling-policy &ndash;auto-scaling-group-name test-autoscal-group &ndash;policy-name test-as-add-one &ndash;scaling-adjustment 1 &ndash;adjustment-type ChangeInCapacity</p>
+
+<p>Remove instance policy :</p>
+
+<p>aws autoscaling put-scaling-policy &ndash;auto-scaling-group-name test-autoscal-group &ndash;policy-name test-as-remove-one &ndash;scaling-adjustment -1 &ndash;adjustment-type ChangeInCapacity</p>
+
+<p>Creating Cloud watch alarms from UI</p>
+
+<p>@TODO: UI steps</p>
+
+<p>Table</p>
+
+
+    
+    
+
+
+    
+    
+    <hr/>
+    <h1>Sibling pages</h1>
+    <nav class="related-links">
+    	  
+          
+        
+        
+        
+        	<li><a href="http://vjeantet.github.io/hugo-menu-show/amazon-aws/elb/" >Amazon ELB</a></li>
+        
+        
+        
+        
+        
+        
+        
+        	<li><a href="http://vjeantet.github.io/hugo-menu-show/amazon-aws/change-instance-type-in-autoscaling/" >Change Instance Type</a></li>
+        
+        
+        
+    </nav>
+    
+
+</div>
+
+	
+</body>
+</html>

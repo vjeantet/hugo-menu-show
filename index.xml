@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo plays with menus</title>
+    <link>http://vjeantet.github.io/hugo-menu-show/</link>
+    <description>Recent content on Hugo plays with menus</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 15 Jul 2015 22:17:00 +0200</lastBuildDate>
+    <atom:link href="http://vjeantet.github.io/hugo-menu-show/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Auto Scaling</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/amazon-aws/autoscaling/</link>
+      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
+      
+      <guid>http://vjeantet.github.io/hugo-menu-show/amazon-aws/autoscaling/</guid>
+      <description>&lt;p&gt;AutoScaling allow you to automatically add or remove your EC2 instances according to your defined condition. To setup autoscaling we create autoscaling group and defined launch configuration for that group so, whenever any instance added in to group it will use that launch configuration .&lt;/p&gt;
+
+&lt;p&gt;Following are the step to setup auto scaling on AWS&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Create AMI of EC2 instance&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;AMI (Amazon Machine Image) is used while new instance is created automatically. We define unique AMI id (e.g ami-xxxxxxxx) in launch configuration.&lt;/p&gt;
+
+&lt;p&gt;Following is the first step to create AMI (there is alternative option also).&lt;/p&gt;
+
+&lt;p&gt;create-aim-1
+First step to create AMI
+In next step it will ask for Image Name, description and other options. Please use help for more info.&lt;/p&gt;
+
+&lt;p&gt;create-aim-2
+Final step to create AMI
+After clicking Create Image button, It will start create image process and give you unique AMI id something like ami-xxxxxxxx that will required in create launch configuration. It will take time to create image depend on the size of your EBS.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Create launch configuration&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;This is the required step to setup autoscaling. As name state, Launch configuration is used when any instance is added to autoscaling group. There are some required field like launch-configuration-name, image-id, instance-type, key, security-groups.&lt;/p&gt;
+
+&lt;p&gt;Lets create launch configuration.&lt;/p&gt;
+
+&lt;p&gt;Step 1 : Go to Launch Config Page and Start Create Launch configuration&lt;/p&gt;
+
+&lt;p&gt;create-new-launch-configuration-1
+Step 1 : Go to Launch Config Page and Start Create Launch configuration
+Step 2 : Select AMI&lt;/p&gt;
+
+&lt;p&gt;create-new-launch-configuration-2
+Step 2 : Select AMI
+OR you select existing EMI if you are already created&lt;/p&gt;
+
+&lt;p&gt;create-new-launch-configuration-3
+Step 2 : Choose Existing AMI
+Step 3 : Choose Instance Type&lt;/p&gt;
+
+&lt;p&gt;create-new-launch-configuration-4
+Step 3: Choose Instance Type
+Step 4 : Name launch configuration &amp;amp; other info&lt;/p&gt;
+
+&lt;p&gt;create-new-launch-configuration-5
+Step 4: Name launch configuration &amp;amp; other info
+Step 5 : Choose Storage&lt;/p&gt;
+
+&lt;p&gt;create-new-launch-configuration-6
+Step 5: Choose Storage
+Step 6 : Choose Security Group&lt;/p&gt;
+
+&lt;p&gt;create-new-launch-configuration-7
+Step 6: Choose Security Group
+Step 7 : Review&lt;/p&gt;
+
+&lt;p&gt;create-new-launch-configuration-8
+Step 7: Review
+Step 8 : Choose Key pair&lt;/p&gt;
+
+&lt;p&gt;create-new-launch-configuration-9
+Step 8: Choose Key pair
+If you are use cli then type following command to create launch config&lt;/p&gt;
+
+&lt;p&gt;aws autoscaling create-launch-configuration &amp;ndash;launch-configuration-name aws-as-conf &amp;ndash;image-id ami-xxxxxxxx &amp;ndash;instance-type m1.large &amp;ndash;key myPrivate &amp;ndash;security-groups mySecurityGroup&lt;/p&gt;
+
+&lt;p&gt;To List all launch configuration&lt;/p&gt;
+
+&lt;p&gt;aws autoscaling describe-launch-configurations&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Create Autoscaling Group&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Autoscaling group use launch configuration to create instance and add it into group. There are some require parameters like availability-zones, min/max-size, load-balancer-names, health-check-type etc&lt;/p&gt;
+
+&lt;p&gt;@TODO : UI Steps&lt;/p&gt;
+
+&lt;p&gt;If you are use cli then type following command to&lt;/p&gt;
+
+&lt;p&gt;aws autoscaling create-auto-scaling-group &amp;ndash;auto-scaling-group-name test-autoscal-group &amp;ndash;launch-configuration aws-as-conf &amp;ndash;availability-zones us-east-1a us-east-1b &amp;ndash;min-size 1 &amp;ndash;max-size 5 &amp;ndash;load-balancer-names test-lb &amp;ndash;health-check-type ELB &amp;ndash;health-check-grace-period 300 &amp;ndash;tag &amp;ldquo;k=Name, v=Test AS, p=true&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;Add instance policy :&lt;/p&gt;
+
+&lt;p&gt;aws autoscaling put-scaling-policy &amp;ndash;auto-scaling-group-name test-autoscal-group &amp;ndash;policy-name test-as-add-one &amp;ndash;scaling-adjustment 1 &amp;ndash;adjustment-type ChangeInCapacity&lt;/p&gt;
+
+&lt;p&gt;Remove instance policy :&lt;/p&gt;
+
+&lt;p&gt;aws autoscaling put-scaling-policy &amp;ndash;auto-scaling-group-name test-autoscal-group &amp;ndash;policy-name test-as-remove-one &amp;ndash;scaling-adjustment -1 &amp;ndash;adjustment-type ChangeInCapacity&lt;/p&gt;
+
+&lt;p&gt;Creating Cloud watch alarms from UI&lt;/p&gt;
+
+&lt;p&gt;@TODO: UI steps&lt;/p&gt;
+
+&lt;p&gt;Table&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Amazon AWS</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/amazon-aws/</link>
+      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
+      
+      <guid>http://vjeantet.github.io/hugo-menu-show/amazon-aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Change Instance Type in AutoScaling</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/amazon-aws/change-instance-type-in-autoscaling/</link>
+      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
+      
+      <guid>http://vjeantet.github.io/hugo-menu-show/amazon-aws/change-instance-type-in-autoscaling/</guid>
+      <description>&lt;p&gt;AWS does not allow to edit launch configuration. If you notice, we define instance type at time of launch configuration. So if you want to change instance type in Auto Scaling group than you need to create new launch configuration for that.&lt;/p&gt;
+
+&lt;p&gt;Following are the step to edit AutoScaling group.&lt;/p&gt;
+
+&lt;p&gt;change-autoscaling-group-instance-type-18
+Change AutoScaling Group Instance Type
+Note: This does not apply to running instances in this group, To apply it on running instance please terminate old instance. New instance will be create as per defined in launch configuration.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Duplicity &#43; Amazon S3</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/backup/duplicity/</link>
+      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
+      
+      <guid>http://vjeantet.github.io/hugo-menu-show/backup/duplicity/</guid>
+      <description>
+
+&lt;p&gt;In this article we will setup automated backup using Duplicity and Amazon S3.&lt;/p&gt;
+
+&lt;h1 id=&#34;installation:f9fbbc02022c03f9d848466806cbf330&#34;&gt;Installation&lt;/h1&gt;
+
+&lt;p&gt;Run following commands to install latest duplicity and python-boto library (duplicity needs it for Amazon S3).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;apt-add-repository ppa:duplicity-team/ppa
+apt-get update
+apt-get install duplicity
+apt-get install python-pip
+pip install boto
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;amazon-s3:f9fbbc02022c03f9d848466806cbf330&#34;&gt;Amazon S3&lt;/h1&gt;
+
+&lt;h2 id=&#34;s3-bucket:f9fbbc02022c03f9d848466806cbf330&#34;&gt;S3 Bucket&lt;/h2&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Amazon ELB and multi-domain SAN/SSL Setup</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/amazon-aws/elb/</link>
+      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
+      
+      <guid>http://vjeantet.github.io/hugo-menu-show/amazon-aws/elb/</guid>
+      <description>
+
+&lt;p&gt;We will use a machine where OpenSSL is already installed. This can be your one of EC2 instance or local machine.&lt;/p&gt;
+
+&lt;p&gt;Following is carried out on Ubuntu.&lt;/p&gt;
+
+&lt;p&gt;Install OpenSSL&lt;/p&gt;
+
+&lt;p&gt;Just run following command:&lt;/p&gt;
+
+&lt;p&gt;apt-get install openssl
+OpenSSL Config File&lt;/p&gt;
+
+&lt;p&gt;Copy OpenSSL config file&lt;/p&gt;
+
+&lt;p&gt;Create a temporary folder:&lt;/p&gt;
+
+&lt;p&gt;cd ~ &amp;amp;&amp;amp; mkdir elbssl &amp;amp;&amp;amp; cd elbssl
+Create a copy of OpenSSL config file in above dir&lt;/p&gt;
+
+&lt;p&gt;cp /etc/ssl/openssl.cnf elbssl.cnf
+Editing Config File&lt;/p&gt;
+
+&lt;p&gt;Open elbssl.cnf and look for  [ req ] section.&lt;/p&gt;
+
+&lt;p&gt;Find add uncomment following line:&lt;/p&gt;
+
+&lt;p&gt;req_extensions = v3_req
+If you don’t find a line like above, you can add one.&lt;/p&gt;
+
+&lt;p&gt;This will make sure our next section [ v3_req ] is read/used.&lt;/p&gt;
+
+&lt;p&gt;In [ v3_req ] section, add following line:&lt;/p&gt;
+
+&lt;p&gt;subjectAltName = @alt_names
+It will look like:&lt;/p&gt;
+
+&lt;p&gt;[ v3_req ]&lt;/p&gt;
+
+&lt;h1 id=&#34;extensions-to-add-to-a-certificate-request:9e12f281d8a4b1679b13bc1a8c55228d&#34;&gt;Extensions to add to a certificate request&lt;/h1&gt;
+
+&lt;p&gt;basicConstraints = CA:FALSE
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment
+subjectAltName = @alt_names
+Finally add a new section called [ alt_names ] towards end of file listing all domain variation you are planning to use.&lt;/p&gt;
+
+&lt;p&gt;[ alt_names ]
+DNS.1 = www.example.com
+DNS.2 = example.com
+Note: I couldn’t  find out whether we need to add domain used in common-name field again here. So I added it again here. Now in common-field, we use www.example.com version – if SSL is for www and non-www versions of domains.&lt;/p&gt;
+
+&lt;p&gt;Now you have your OpenSSL config file ready.&lt;/p&gt;
+
+&lt;p&gt;OpenSSL Private Key &amp;amp; CSR&lt;/p&gt;
+
+&lt;p&gt;Private Key&lt;/p&gt;
+
+&lt;p&gt;Run following command to generate private key. Do not use passphrase as nginx will use this private key.&lt;/p&gt;
+
+&lt;p&gt;openssl genrsa -out example.com.key 2048
+Certificate Signing Request – CSR generation&lt;/p&gt;
+
+&lt;p&gt;Next, we will generate CSR using private key above AND site-specific copy of OpenSSL config file.&lt;/p&gt;
+
+&lt;p&gt;openssl req -new -key example.com.key -out example.com.csr -config elbssl.cnf
+Please note -config switch. If you forget it, your CSR won’t include (Subject) Alternative (domain) Names.&lt;/p&gt;
+
+&lt;p&gt;Verify CSR&lt;/p&gt;
+
+&lt;p&gt;Since sending CSR and getting certificate is time consuming process, it’s better to verify if CSR is generated correctly.&lt;/p&gt;
+
+&lt;p&gt;Run following command:&lt;/p&gt;
+
+&lt;p&gt;openssl req -in example.com.csr -noout -text
+You will see something like below in output. Please make sure you read highlighted area.&lt;/p&gt;
+
+&lt;p&gt;Certificate Request:
+    Data:
+        Version: 0 (0x0)
+        Subject: C=IN, ST=MH, L=PUNE, O=RTCAMP SOLUTIONS PRIVATE LIMITED., CN=www.example.com/emailAddress=admin@example.com
+    [&amp;hellip;]
+            X509v3 Basic Constraints:
+                CA:FALSE
+            X509v3 Key Usage:
+                Digital Signature, Non Repudiation, Key Encipherment
+            X509v3 Subject Alternative Name:
+                DNS:www.example.com, DNS:example.com
+    [&amp;hellip;]
+Submitting CSR and Requesting certificate&lt;/p&gt;
+
+&lt;p&gt;Once you have CSR, the process of submitting it is online and often coupled with extra steps depending of certificate provider.&lt;/p&gt;
+
+&lt;p&gt;You can refer to GoDaddy workflow and Thawte Workflow here.&lt;/p&gt;
+
+&lt;p&gt;Also, when you get certificate from provider, you can verify if its correct by using this article.&lt;/p&gt;
+
+&lt;p&gt;Uploading Certificate to Amazon ELB&lt;/p&gt;
+
+&lt;p&gt;You may need to convert Private Key, Certificate and bundle/intermediate-certificate in PEM format before uploading them to Amazon ELB.&lt;/p&gt;
+
+&lt;p&gt;Please refer to “Upload the Signed Certificate” section in – &lt;a href=&#34;http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/ssl-server-cert.html&#34;&gt;http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/ssl-server-cert.html&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Backup</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/backup/</link>
+      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
+      
+      <guid>http://vjeantet.github.io/hugo-menu-show/backup/</guid>
+      <description>&lt;p&gt;Tutorials for backing up your server to (S)FTP, Amazon S3, CrashPlan, Local-rsnapshot and more.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Apple Mail</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/emails/clients/applemail/</link>
+      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
+      
+      <guid>http://vjeantet.github.io/hugo-menu-show/emails/clients/applemail/</guid>
+      <description>&lt;ol&gt;
+&lt;li&gt;Goto Add Account.. option from Mail Menu of apple Mail.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;imap-apple-mail-client-setup-step-1
+Step 1 : Select Add Account
+2. Select Add Other Mail Account… then click on Continue&lt;/p&gt;
+
+&lt;p&gt;imap-apple-mail-client-setup-step-2
+Step 2 : Select Add Other Mail Account
+3. Add a Mail Account details: Name, Email and Password then click Create&lt;/p&gt;
+
+&lt;p&gt;imap-apple-mail-client-setup-step-3
+Step 3 : Add a Mail Account details
+4. Add Incoming Mail Server Info : Select IMAP in account type, then Enter your IMAP Mail Server address, Your full email address as User Name and password then click Next&lt;/p&gt;
+
+&lt;p&gt;imap-apple-mail-client-setup-step-4
+Step 4 : Add Incoming Mail Server Info
+5. Verify Certificate : If you have configure SSL on your imap and if it is self signed certificate then you might get this additional box, Just click Connect.&lt;/p&gt;
+
+&lt;p&gt;imap-apple-mail-client-setup-step-5
+Step 5 : Verify Certificate
+6. Outgoing Mail server Info : Just Enter your SMTP mail server details then click Create&lt;/p&gt;
+
+&lt;p&gt;imap-apple-mail-client-setup-step-6
+Step 6 : Outgoing Mail server Info&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Checking FQDN, Reverse-DNS/PTR, MX record</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/emails/checking-fqdn-reverse-dns-ptr-mx-record/</link>
+      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
+      
+      <guid>http://vjeantet.github.io/hugo-menu-show/emails/checking-fqdn-reverse-dns-ptr-mx-record/</guid>
+      <description>
+
+&lt;p&gt;Before you start a mail server, you must verify your server’s FQDN, reverse PTR, MX records.&lt;/p&gt;
+
+&lt;h1 id=&#34;fqdn:87ecb64fd2948822804c4a919252609e&#34;&gt;FQDN&lt;/h1&gt;
+
+&lt;p&gt;FQDN (fully qualified domain name) is a name assigned to an individual machine. Its purpose is to uniquely identify a single machine across internet. It is name of your server.&lt;/p&gt;
+
+&lt;h2 id=&#34;checking-hostname-fqdn:87ecb64fd2948822804c4a919252609e&#34;&gt;Checking Hostname (FQDN)&lt;/h2&gt;
+
+&lt;p&gt;Following commands show outcome for test.rtcamp.com (a subdomain we used for test mail server setup)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Mozilla Thunderbird</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/emails/clients/mozilla-thunderbird/</link>
+      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
+      
+      <guid>http://vjeantet.github.io/hugo-menu-show/emails/clients/mozilla-thunderbird/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;Create a new mail account&lt;/li&gt;
+&lt;li&gt;Fill in the details and hit on continue&lt;/li&gt;
+&lt;li&gt;Thunderbird1&lt;/li&gt;
+&lt;li&gt;Skip auto conifg and go for a manual config&lt;/li&gt;
+&lt;li&gt;Do the following settings
+Incoming: IMAP; Port: 143; SSL: STARTTLS; Authentication: Normal
+Outgoing: SMTP; Port&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>DKIM with Postfix</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/emails/dkim-with-postfix/</link>
+      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
+      
+      <guid>http://vjeantet.github.io/hugo-menu-show/emails/dkim-with-postfix/</guid>
+      <description>
+
+&lt;p&gt;If mails from your web-server/webapp is having delivery issues, DKIM (DomainKeys Identified Mail) can help you big time.&lt;/p&gt;
+
+&lt;p&gt;Its highly recommended to use DKIM for outgoing emails even if your server is not running any kind of mail-hosting.&lt;/p&gt;
+
+&lt;h1 id=&#34;install-dkim:06d3e8bedaf9eb5e05e3f961443df640&#34;&gt;Install DKIM&lt;/h1&gt;
+
+&lt;p&gt;&lt;code&gt;apt-get install opendkim opendkim-tools&lt;/code&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;edit:06d3e8bedaf9eb5e05e3f961443df640&#34;&gt;Edit&lt;/h1&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Clients</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/emails/clients/</link>
+      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
+      
+      <guid>http://vjeantet.github.io/hugo-menu-show/emails/clients/</guid>
+      <description>&lt;p&gt;Instructions for configuring different email clients.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Postfix Queue Management</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/emails/postfix-queue-management/</link>
+      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
+      
+      <guid>http://vjeantet.github.io/hugo-menu-show/emails/postfix-queue-management/</guid>
+      <description>
+
+&lt;p&gt;Goal: To find which mails are stuck in mail queue and why?&lt;/p&gt;
+
+&lt;p&gt;If emails are getting delayed, its better to inspect postfix mail queues, coupled with postfix mail log.&lt;/p&gt;
+
+&lt;h1 id=&#34;status-shape-of-mail-queue:fefacb2bb08f3b92c214ef2bc59cbe67&#34;&gt;Status/Shape of Mail Queue&lt;/h1&gt;
+
+&lt;p&gt;Postfix maintains different queues for different purpose.active  and  deferred queues are of our interest.&lt;/p&gt;
+
+&lt;p&gt;Ideally, we should never have a mail&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Antivirus Tests</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/antivirus/</link>
+      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
+      
+      <guid>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/antivirus/</guid>
+      <description>
+
+&lt;h1 id=&#34;send-a-test-mail-with-virus-attached:046302e3e204826d1d0c492c00354b95&#34;&gt;Send a test mail with virus attached&lt;/h1&gt;
+
+&lt;p&gt;We use EICAR test file.&lt;/p&gt;
+
+&lt;p&gt;Download EICAR file locally.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;wget https://secure.eicar.org/eicar.com.txt&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;For command-line sending, you will need&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>POP Tests</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/pop/</link>
+      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
+      
+      <guid>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/pop/</guid>
+      <description>
+
+&lt;h1 id=&#34;connect-to-server:08b3b812ae2d48c0e34679b48eed991a&#34;&gt;Connect to server&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;telnet example.com 110
+openssl s_client -crlf -connect example:995
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;pop-test-commands:08b3b812ae2d48c0e34679b48eed991a&#34;&gt;POP Test Commands&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;USER admin@example.com
+PASS password
+STAT 
+LIST
+QUIT
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>IMAP Tests</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/imap/</link>
+      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
+      
+      <guid>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/imap/</guid>
+      <description>
+
+&lt;h1 id=&#34;connect-to-server:456ea893f70e958800bcccf72724b241&#34;&gt;Connect to server&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;telnet example.com 143
+openssl s_client -crlf -connect example.com:993
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;imap-test-commands:456ea893f70e958800bcccf72724b241&#34;&gt;IMAP Test Commands&lt;/h1&gt;
+
+&lt;p&gt;`&lt;code&gt;
+01 LOGIN admin@example.com password
+02 LIST &amp;quot;&amp;quot; *
+03 SELECT INBOX
+04 STATUS INBOX (MESSAGES)
+05 FETCH 1 ALL
+06 LOGOUT
+&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
