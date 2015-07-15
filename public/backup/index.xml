@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Backups on Hugo plays with menus</title>
+    <link>http://vjeantet.github.io/hugo-menu-show/backup/</link>
+    <description>Recent content in Backups on Hugo plays with menus</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 15 Jul 2015 22:17:00 +0200</lastBuildDate>
+    <atom:link href="http://vjeantet.github.io/hugo-menu-show/backup/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Duplicity &#43; Amazon S3</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/backup/duplicity/</link>
+      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
+      
+      <guid>http://vjeantet.github.io/hugo-menu-show/backup/duplicity/</guid>
+      <description>
+
+&lt;p&gt;In this article we will setup automated backup using Duplicity and Amazon S3.&lt;/p&gt;
+
+&lt;h1 id=&#34;installation:f9fbbc02022c03f9d848466806cbf330&#34;&gt;Installation&lt;/h1&gt;
+
+&lt;p&gt;Run following commands to install latest duplicity and python-boto library (duplicity needs it for Amazon S3).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;apt-add-repository ppa:duplicity-team/ppa
+apt-get update
+apt-get install duplicity
+apt-get install python-pip
+pip install boto
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;amazon-s3:f9fbbc02022c03f9d848466806cbf330&#34;&gt;Amazon S3&lt;/h1&gt;
+
+&lt;h2 id=&#34;s3-bucket:f9fbbc02022c03f9d848466806cbf330&#34;&gt;S3 Bucket&lt;/h2&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
