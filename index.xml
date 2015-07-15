@@ -10,12 +10,134 @@
     <atom:link href="http://vjeantet.github.io/hugo-menu-show/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Auto Scaling</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/amazon-aws/AutoScaling/</link>
+      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
+      
+      <guid>http://vjeantet.github.io/hugo-menu-show/amazon-aws/AutoScaling/</guid>
+      <description>&lt;p&gt;AutoScaling allow you to automatically add or remove your EC2 instances according to your defined condition. To setup autoscaling we create autoscaling group and defined launch configuration for that group so, whenever any instance added in to group it will use that launch configuration .&lt;/p&gt;
+
+&lt;p&gt;Following are the step to setup auto scaling on AWS&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Create AMI of EC2 instance&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;AMI (Amazon Machine Image) is used while new instance is created automatically. We define unique AMI id (e.g ami-xxxxxxxx) in launch configuration.&lt;/p&gt;
+
+&lt;p&gt;Following is the first step to create AMI (there is alternative option also).&lt;/p&gt;
+
+&lt;p&gt;create-aim-1
+First step to create AMI
+In next step it will ask for Image Name, description and other options. Please use help for more info.&lt;/p&gt;
+
+&lt;p&gt;create-aim-2
+Final step to create AMI
+After clicking Create Image button, It will start create image process and give you unique AMI id something like ami-xxxxxxxx that will required in create launch configuration. It will take time to create image depend on the size of your EBS.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Create launch configuration&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;This is the required step to setup autoscaling. As name state, Launch configuration is used when any instance is added to autoscaling group. There are some required field like launch-configuration-name, image-id, instance-type, key, security-groups.&lt;/p&gt;
+
+&lt;p&gt;Lets create launch configuration.&lt;/p&gt;
+
+&lt;p&gt;Step 1 : Go to Launch Config Page and Start Create Launch configuration&lt;/p&gt;
+
+&lt;p&gt;create-new-launch-configuration-1
+Step 1 : Go to Launch Config Page and Start Create Launch configuration
+Step 2 : Select AMI&lt;/p&gt;
+
+&lt;p&gt;create-new-launch-configuration-2
+Step 2 : Select AMI
+OR you select existing EMI if you are already created&lt;/p&gt;
+
+&lt;p&gt;create-new-launch-configuration-3
+Step 2 : Choose Existing AMI
+Step 3 : Choose Instance Type&lt;/p&gt;
+
+&lt;p&gt;create-new-launch-configuration-4
+Step 3: Choose Instance Type
+Step 4 : Name launch configuration &amp;amp; other info&lt;/p&gt;
+
+&lt;p&gt;create-new-launch-configuration-5
+Step 4: Name launch configuration &amp;amp; other info
+Step 5 : Choose Storage&lt;/p&gt;
+
+&lt;p&gt;create-new-launch-configuration-6
+Step 5: Choose Storage
+Step 6 : Choose Security Group&lt;/p&gt;
+
+&lt;p&gt;create-new-launch-configuration-7
+Step 6: Choose Security Group
+Step 7 : Review&lt;/p&gt;
+
+&lt;p&gt;create-new-launch-configuration-8
+Step 7: Review
+Step 8 : Choose Key pair&lt;/p&gt;
+
+&lt;p&gt;create-new-launch-configuration-9
+Step 8: Choose Key pair
+If you are use cli then type following command to create launch config&lt;/p&gt;
+
+&lt;p&gt;aws autoscaling create-launch-configuration &amp;ndash;launch-configuration-name aws-as-conf &amp;ndash;image-id ami-xxxxxxxx &amp;ndash;instance-type m1.large &amp;ndash;key myPrivate &amp;ndash;security-groups mySecurityGroup&lt;/p&gt;
+
+&lt;p&gt;To List all launch configuration&lt;/p&gt;
+
+&lt;p&gt;aws autoscaling describe-launch-configurations&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Create Autoscaling Group&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Autoscaling group use launch configuration to create instance and add it into group. There are some require parameters like availability-zones, min/max-size, load-balancer-names, health-check-type etc&lt;/p&gt;
+
+&lt;p&gt;@TODO : UI Steps&lt;/p&gt;
+
+&lt;p&gt;If you are use cli then type following command to&lt;/p&gt;
+
+&lt;p&gt;aws autoscaling create-auto-scaling-group &amp;ndash;auto-scaling-group-name test-autoscal-group &amp;ndash;launch-configuration aws-as-conf &amp;ndash;availability-zones us-east-1a us-east-1b &amp;ndash;min-size 1 &amp;ndash;max-size 5 &amp;ndash;load-balancer-names test-lb &amp;ndash;health-check-type ELB &amp;ndash;health-check-grace-period 300 &amp;ndash;tag &amp;ldquo;k=Name, v=Test AS, p=true&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;Add instance policy :&lt;/p&gt;
+
+&lt;p&gt;aws autoscaling put-scaling-policy &amp;ndash;auto-scaling-group-name test-autoscal-group &amp;ndash;policy-name test-as-add-one &amp;ndash;scaling-adjustment 1 &amp;ndash;adjustment-type ChangeInCapacity&lt;/p&gt;
+
+&lt;p&gt;Remove instance policy :&lt;/p&gt;
+
+&lt;p&gt;aws autoscaling put-scaling-policy &amp;ndash;auto-scaling-group-name test-autoscal-group &amp;ndash;policy-name test-as-remove-one &amp;ndash;scaling-adjustment -1 &amp;ndash;adjustment-type ChangeInCapacity&lt;/p&gt;
+
+&lt;p&gt;Creating Cloud watch alarms from UI&lt;/p&gt;
+
+&lt;p&gt;@TODO: UI steps&lt;/p&gt;
+
+&lt;p&gt;Table&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Amazon AWS</title>
       <link>http://vjeantet.github.io/hugo-menu-show/Amazon-AWS/</link>
       <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
       
       <guid>http://vjeantet.github.io/hugo-menu-show/Amazon-AWS/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>Change Instance Type in AutoScaling</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/amazon-aws/Change-Instance-Type-in-AutoScaling/</link>
+      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
+      
+      <guid>http://vjeantet.github.io/hugo-menu-show/amazon-aws/Change-Instance-Type-in-AutoScaling/</guid>
+      <description>&lt;p&gt;AWS does not allow to edit launch configuration. If you notice, we define instance type at time of launch configuration. So if you want to change instance type in Auto Scaling group than you need to create new launch configuration for that.&lt;/p&gt;
+
+&lt;p&gt;Following are the step to edit AutoScaling group.&lt;/p&gt;
+
+&lt;p&gt;change-autoscaling-group-instance-type-18
+Change AutoScaling Group Instance Type
+Note: This does not apply to running instances in this group, To apply it on running instance please terminate old instance. New instance will be create as per defined in launch configuration.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -125,128 +247,6 @@ Submitting CSR and Requesting certificate&lt;/p&gt;
 &lt;p&gt;You may need to convert Private Key, Certificate and bundle/intermediate-certificate in PEM format before uploading them to Amazon ELB.&lt;/p&gt;
 
 &lt;p&gt;Please refer to “Upload the Signed Certificate” section in – &lt;a href=&#34;http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/ssl-server-cert.html&#34;&gt;http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/ssl-server-cert.html&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Auto Scaling</title>
-      <link>http://vjeantet.github.io/hugo-menu-show/amazon-aws/AutoScaling/</link>
-      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
-      
-      <guid>http://vjeantet.github.io/hugo-menu-show/amazon-aws/AutoScaling/</guid>
-      <description>&lt;p&gt;AutoScaling allow you to automatically add or remove your EC2 instances according to your defined condition. To setup autoscaling we create autoscaling group and defined launch configuration for that group so, whenever any instance added in to group it will use that launch configuration .&lt;/p&gt;
-
-&lt;p&gt;Following are the step to setup auto scaling on AWS&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Create AMI of EC2 instance&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;AMI (Amazon Machine Image) is used while new instance is created automatically. We define unique AMI id (e.g ami-xxxxxxxx) in launch configuration.&lt;/p&gt;
-
-&lt;p&gt;Following is the first step to create AMI (there is alternative option also).&lt;/p&gt;
-
-&lt;p&gt;create-aim-1
-First step to create AMI
-In next step it will ask for Image Name, description and other options. Please use help for more info.&lt;/p&gt;
-
-&lt;p&gt;create-aim-2
-Final step to create AMI
-After clicking Create Image button, It will start create image process and give you unique AMI id something like ami-xxxxxxxx that will required in create launch configuration. It will take time to create image depend on the size of your EBS.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Create launch configuration&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;This is the required step to setup autoscaling. As name state, Launch configuration is used when any instance is added to autoscaling group. There are some required field like launch-configuration-name, image-id, instance-type, key, security-groups.&lt;/p&gt;
-
-&lt;p&gt;Lets create launch configuration.&lt;/p&gt;
-
-&lt;p&gt;Step 1 : Go to Launch Config Page and Start Create Launch configuration&lt;/p&gt;
-
-&lt;p&gt;create-new-launch-configuration-1
-Step 1 : Go to Launch Config Page and Start Create Launch configuration
-Step 2 : Select AMI&lt;/p&gt;
-
-&lt;p&gt;create-new-launch-configuration-2
-Step 2 : Select AMI
-OR you select existing EMI if you are already created&lt;/p&gt;
-
-&lt;p&gt;create-new-launch-configuration-3
-Step 2 : Choose Existing AMI
-Step 3 : Choose Instance Type&lt;/p&gt;
-
-&lt;p&gt;create-new-launch-configuration-4
-Step 3: Choose Instance Type
-Step 4 : Name launch configuration &amp;amp; other info&lt;/p&gt;
-
-&lt;p&gt;create-new-launch-configuration-5
-Step 4: Name launch configuration &amp;amp; other info
-Step 5 : Choose Storage&lt;/p&gt;
-
-&lt;p&gt;create-new-launch-configuration-6
-Step 5: Choose Storage
-Step 6 : Choose Security Group&lt;/p&gt;
-
-&lt;p&gt;create-new-launch-configuration-7
-Step 6: Choose Security Group
-Step 7 : Review&lt;/p&gt;
-
-&lt;p&gt;create-new-launch-configuration-8
-Step 7: Review
-Step 8 : Choose Key pair&lt;/p&gt;
-
-&lt;p&gt;create-new-launch-configuration-9
-Step 8: Choose Key pair
-If you are use cli then type following command to create launch config&lt;/p&gt;
-
-&lt;p&gt;aws autoscaling create-launch-configuration &amp;ndash;launch-configuration-name aws-as-conf &amp;ndash;image-id ami-xxxxxxxx &amp;ndash;instance-type m1.large &amp;ndash;key myPrivate &amp;ndash;security-groups mySecurityGroup&lt;/p&gt;
-
-&lt;p&gt;To List all launch configuration&lt;/p&gt;
-
-&lt;p&gt;aws autoscaling describe-launch-configurations&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Create Autoscaling Group&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Autoscaling group use launch configuration to create instance and add it into group. There are some require parameters like availability-zones, min/max-size, load-balancer-names, health-check-type etc&lt;/p&gt;
-
-&lt;p&gt;@TODO : UI Steps&lt;/p&gt;
-
-&lt;p&gt;If you are use cli then type following command to&lt;/p&gt;
-
-&lt;p&gt;aws autoscaling create-auto-scaling-group &amp;ndash;auto-scaling-group-name test-autoscal-group &amp;ndash;launch-configuration aws-as-conf &amp;ndash;availability-zones us-east-1a us-east-1b &amp;ndash;min-size 1 &amp;ndash;max-size 5 &amp;ndash;load-balancer-names test-lb &amp;ndash;health-check-type ELB &amp;ndash;health-check-grace-period 300 &amp;ndash;tag &amp;ldquo;k=Name, v=Test AS, p=true&amp;rdquo;&lt;/p&gt;
-
-&lt;p&gt;Add instance policy :&lt;/p&gt;
-
-&lt;p&gt;aws autoscaling put-scaling-policy &amp;ndash;auto-scaling-group-name test-autoscal-group &amp;ndash;policy-name test-as-add-one &amp;ndash;scaling-adjustment 1 &amp;ndash;adjustment-type ChangeInCapacity&lt;/p&gt;
-
-&lt;p&gt;Remove instance policy :&lt;/p&gt;
-
-&lt;p&gt;aws autoscaling put-scaling-policy &amp;ndash;auto-scaling-group-name test-autoscal-group &amp;ndash;policy-name test-as-remove-one &amp;ndash;scaling-adjustment -1 &amp;ndash;adjustment-type ChangeInCapacity&lt;/p&gt;
-
-&lt;p&gt;Creating Cloud watch alarms from UI&lt;/p&gt;
-
-&lt;p&gt;@TODO: UI steps&lt;/p&gt;
-
-&lt;p&gt;Table&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Change Instance Type in AutoScaling</title>
-      <link>http://vjeantet.github.io/hugo-menu-show/amazon-aws/Change-Instance-Type-in-AutoScaling/</link>
-      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
-      
-      <guid>http://vjeantet.github.io/hugo-menu-show/amazon-aws/Change-Instance-Type-in-AutoScaling/</guid>
-      <description>&lt;p&gt;AWS does not allow to edit launch configuration. If you notice, we define instance type at time of launch configuration. So if you want to change instance type in Auto Scaling group than you need to create new launch configuration for that.&lt;/p&gt;
-
-&lt;p&gt;Following are the step to edit AutoScaling group.&lt;/p&gt;
-
-&lt;p&gt;change-autoscaling-group-instance-type-18
-Change AutoScaling Group Instance Type
-Note: This does not apply to running instances in this group, To apply it on running instance please terminate old instance. New instance will be create as per defined in launch configuration.&lt;/p&gt;
 </description>
     </item>
     
