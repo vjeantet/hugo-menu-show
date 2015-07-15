@@ -3,3 +3,4 @@ languageCode = "en-us"
 title = "Hugo plays with menus"
 
 
+canonifyurls = true
