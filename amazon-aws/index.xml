@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Amazon-AWSs on Hugo plays with menus</title>
+    <title>Amazon-aws on Hugo plays with menus</title>
     <link>http://vjeantet.github.io/hugo-menu-show/amazon-aws/</link>
-    <description>Recent content in Amazon-AWSs on Hugo plays with menus</description>
+    <description>Recent content in Amazon-aws on Hugo plays with menus</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 15 Jul 2015 22:17:00 +0200</lastBuildDate>
@@ -121,10 +121,10 @@ Submitting CSR and Requesting certificate&lt;/p&gt;
     
     <item>
       <title>Auto Scaling</title>
-      <link>http://vjeantet.github.io/hugo-menu-show/amazon-aws/AutoScaling/</link>
+      <link>http://vjeantet.github.io/hugo-menu-show/amazon-aws/autoscaling/</link>
       <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
       
-      <guid>http://vjeantet.github.io/hugo-menu-show/amazon-aws/AutoScaling/</guid>
+      <guid>http://vjeantet.github.io/hugo-menu-show/amazon-aws/autoscaling/</guid>
       <description>&lt;p&gt;AutoScaling allow you to automatically add or remove your EC2 instances according to your defined condition. To setup autoscaling we create autoscaling group and defined launch configuration for that group so, whenever any instance added in to group it will use that launch configuration .&lt;/p&gt;
 
 &lt;p&gt;Following are the step to setup auto scaling on AWS&lt;/p&gt;
@@ -227,10 +227,10 @@ If you are use cli then type following command to create launch config&lt;/p&gt;
     
     <item>
       <title>Change Instance Type in AutoScaling</title>
-      <link>http://vjeantet.github.io/hugo-menu-show/amazon-aws/Change-Instance-Type-in-AutoScaling/</link>
+      <link>http://vjeantet.github.io/hugo-menu-show/amazon-aws/change-instance-type-in-autoscaling/</link>
       <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
       
-      <guid>http://vjeantet.github.io/hugo-menu-show/amazon-aws/Change-Instance-Type-in-AutoScaling/</guid>
+      <guid>http://vjeantet.github.io/hugo-menu-show/amazon-aws/change-instance-type-in-autoscaling/</guid>
       <description>&lt;p&gt;AWS does not allow to edit launch configuration. If you notice, we define instance type at time of launch configuration. So if you want to change instance type in Auto Scaling group than you need to create new launch configuration for that.&lt;/p&gt;
 
 &lt;p&gt;Following are the step to edit AutoScaling group.&lt;/p&gt;
