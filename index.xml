@@ -10,22 +10,6 @@
     <atom:link href="http://vjeantet.github.io/hugo-menu-show/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Change Instance Type in AutoScaling</title>
-      <link>http://vjeantet.github.io/hugo-menu-show/amazon-aws/change-instance-type-in-autoscaling/</link>
-      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
-      
-      <guid>http://vjeantet.github.io/hugo-menu-show/amazon-aws/change-instance-type-in-autoscaling/</guid>
-      <description>&lt;p&gt;AWS does not allow to edit launch configuration. If you notice, we define instance type at time of launch configuration. So if you want to change instance type in Auto Scaling group than you need to create new launch configuration for that.&lt;/p&gt;
-
-&lt;p&gt;Following are the step to edit AutoScaling group.&lt;/p&gt;
-
-&lt;p&gt;change-autoscaling-group-instance-type-18
-Change AutoScaling Group Instance Type
-Note: This does not apply to running instances in this group, To apply it on running instance please terminate old instance. New instance will be create as per defined in launch configuration.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Auto Scaling</title>
       <link>http://vjeantet.github.io/hugo-menu-show/amazon-aws/autoscaling/</link>
       <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
@@ -251,6 +235,22 @@ Submitting CSR and Requesting certificate&lt;/p&gt;
     </item>
     
     <item>
+      <title>Change Instance Type in AutoScaling</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/amazon-aws/change-instance-type-in-autoscaling/</link>
+      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
+      
+      <guid>http://vjeantet.github.io/hugo-menu-show/amazon-aws/change-instance-type-in-autoscaling/</guid>
+      <description>&lt;p&gt;AWS does not allow to edit launch configuration. If you notice, we define instance type at time of launch configuration. So if you want to change instance type in Auto Scaling group than you need to create new launch configuration for that.&lt;/p&gt;
+
+&lt;p&gt;Following are the step to edit AutoScaling group.&lt;/p&gt;
+
+&lt;p&gt;change-autoscaling-group-instance-type-18
+Change AutoScaling Group Instance Type
+Note: This does not apply to running instances in this group, To apply it on running instance please terminate old instance. New instance will be create as per defined in launch configuration.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Duplicity &#43; Amazon S3</title>
       <link>http://vjeantet.github.io/hugo-menu-show/backup/duplicity/</link>
       <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
@@ -274,51 +274,6 @@ pip install boto
 &lt;h1 id=&#34;amazon-s3:f9fbbc02022c03f9d848466806cbf330&#34;&gt;Amazon S3&lt;/h1&gt;
 
 &lt;h2 id=&#34;s3-bucket:f9fbbc02022c03f9d848466806cbf330&#34;&gt;S3 Bucket&lt;/h2&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Backup</title>
-      <link>http://vjeantet.github.io/hugo-menu-show/backup/</link>
-      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
-      
-      <guid>http://vjeantet.github.io/hugo-menu-show/backup/</guid>
-      <description>&lt;p&gt;Tutorials for backing up your server to (S)FTP, Amazon S3, CrashPlan, Local-rsnapshot and more.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Apple Mail</title>
-      <link>http://vjeantet.github.io/hugo-menu-show/emails/clients/applemail/</link>
-      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
-      
-      <guid>http://vjeantet.github.io/hugo-menu-show/emails/clients/applemail/</guid>
-      <description>&lt;ol&gt;
-&lt;li&gt;Goto Add Account.. option from Mail Menu of apple Mail.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;imap-apple-mail-client-setup-step-1
-Step 1 : Select Add Account
-2. Select Add Other Mail Account… then click on Continue&lt;/p&gt;
-
-&lt;p&gt;imap-apple-mail-client-setup-step-2
-Step 2 : Select Add Other Mail Account
-3. Add a Mail Account details: Name, Email and Password then click Create&lt;/p&gt;
-
-&lt;p&gt;imap-apple-mail-client-setup-step-3
-Step 3 : Add a Mail Account details
-4. Add Incoming Mail Server Info : Select IMAP in account type, then Enter your IMAP Mail Server address, Your full email address as User Name and password then click Next&lt;/p&gt;
-
-&lt;p&gt;imap-apple-mail-client-setup-step-4
-Step 4 : Add Incoming Mail Server Info
-5. Verify Certificate : If you have configure SSL on your imap and if it is self signed certificate then you might get this additional box, Just click Connect.&lt;/p&gt;
-
-&lt;p&gt;imap-apple-mail-client-setup-step-5
-Step 5 : Verify Certificate
-6. Outgoing Mail server Info : Just Enter your SMTP mail server details then click Create&lt;/p&gt;
-
-&lt;p&gt;imap-apple-mail-client-setup-step-6
-Step 6 : Outgoing Mail server Info&lt;/p&gt;
 </description>
     </item>
     
@@ -361,12 +316,77 @@ Outgoing: SMTP; Port&lt;/li&gt;
     </item>
     
     <item>
+      <title>Apple Mail</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/emails/clients/applemail/</link>
+      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
+      
+      <guid>http://vjeantet.github.io/hugo-menu-show/emails/clients/applemail/</guid>
+      <description>&lt;ol&gt;
+&lt;li&gt;Goto Add Account.. option from Mail Menu of apple Mail.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;imap-apple-mail-client-setup-step-1
+Step 1 : Select Add Account
+2. Select Add Other Mail Account… then click on Continue&lt;/p&gt;
+
+&lt;p&gt;imap-apple-mail-client-setup-step-2
+Step 2 : Select Add Other Mail Account
+3. Add a Mail Account details: Name, Email and Password then click Create&lt;/p&gt;
+
+&lt;p&gt;imap-apple-mail-client-setup-step-3
+Step 3 : Add a Mail Account details
+4. Add Incoming Mail Server Info : Select IMAP in account type, then Enter your IMAP Mail Server address, Your full email address as User Name and password then click Next&lt;/p&gt;
+
+&lt;p&gt;imap-apple-mail-client-setup-step-4
+Step 4 : Add Incoming Mail Server Info
+5. Verify Certificate : If you have configure SSL on your imap and if it is self signed certificate then you might get this additional box, Just click Connect.&lt;/p&gt;
+
+&lt;p&gt;imap-apple-mail-client-setup-step-5
+Step 5 : Verify Certificate
+6. Outgoing Mail server Info : Just Enter your SMTP mail server details then click Create&lt;/p&gt;
+
+&lt;p&gt;imap-apple-mail-client-setup-step-6
+Step 6 : Outgoing Mail server Info&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Backup</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/backup/</link>
+      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
+      
+      <guid>http://vjeantet.github.io/hugo-menu-show/backup/</guid>
+      <description>&lt;p&gt;Tutorials for backing up your server to (S)FTP, Amazon S3, CrashPlan, Local-rsnapshot and more.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Clients</title>
       <link>http://vjeantet.github.io/hugo-menu-show/emails/clients/</link>
       <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
       
       <guid>http://vjeantet.github.io/hugo-menu-show/emails/clients/</guid>
       <description>&lt;p&gt;Instructions for configuring different email clients.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>DKIM with Postfix</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/emails/dkim-with-postfix/</link>
+      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
+      
+      <guid>http://vjeantet.github.io/hugo-menu-show/emails/dkim-with-postfix/</guid>
+      <description>
+
+&lt;p&gt;If mails from your web-server/webapp is having delivery issues, DKIM (DomainKeys Identified Mail) can help you big time.&lt;/p&gt;
+
+&lt;p&gt;Its highly recommended to use DKIM for outgoing emails even if your server is not running any kind of mail-hosting.&lt;/p&gt;
+
+&lt;h1 id=&#34;install-dkim:06d3e8bedaf9eb5e05e3f961443df640&#34;&gt;Install DKIM&lt;/h1&gt;
+
+&lt;p&gt;&lt;code&gt;apt-get install opendkim opendkim-tools&lt;/code&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;edit:06d3e8bedaf9eb5e05e3f961443df640&#34;&gt;Edit&lt;/h1&gt;
 </description>
     </item>
     
@@ -391,22 +411,22 @@ Outgoing: SMTP; Port&lt;/li&gt;
     </item>
     
     <item>
-      <title>DKIM with Postfix</title>
-      <link>http://vjeantet.github.io/hugo-menu-show/emails/dkim-with-postfix/</link>
+      <title>Antivirus Tests</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/antivirus/</link>
       <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
       
-      <guid>http://vjeantet.github.io/hugo-menu-show/emails/dkim-with-postfix/</guid>
+      <guid>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/antivirus/</guid>
       <description>
 
-&lt;p&gt;If mails from your web-server/webapp is having delivery issues, DKIM (DomainKeys Identified Mail) can help you big time.&lt;/p&gt;
+&lt;h1 id=&#34;send-a-test-mail-with-virus-attached:046302e3e204826d1d0c492c00354b95&#34;&gt;Send a test mail with virus attached&lt;/h1&gt;
 
-&lt;p&gt;Its highly recommended to use DKIM for outgoing emails even if your server is not running any kind of mail-hosting.&lt;/p&gt;
+&lt;p&gt;We use EICAR test file.&lt;/p&gt;
 
-&lt;h1 id=&#34;install-dkim:06d3e8bedaf9eb5e05e3f961443df640&#34;&gt;Install DKIM&lt;/h1&gt;
+&lt;p&gt;Download EICAR file locally.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;apt-get install opendkim opendkim-tools&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;wget https://secure.eicar.org/eicar.com.txt&lt;/code&gt;&lt;/p&gt;
 
-&lt;h1 id=&#34;edit:06d3e8bedaf9eb5e05e3f961443df640&#34;&gt;Edit&lt;/h1&gt;
+&lt;p&gt;For command-line sending, you will need&lt;/p&gt;
 </description>
     </item>
     
@@ -434,26 +454,6 @@ openssl s_client -crlf -connect example.com:993
 05 FETCH 1 ALL
 06 LOGOUT
 &lt;/code&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Antivirus Tests</title>
-      <link>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/antivirus/</link>
-      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
-      
-      <guid>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/antivirus/</guid>
-      <description>
-
-&lt;h1 id=&#34;send-a-test-mail-with-virus-attached:046302e3e204826d1d0c492c00354b95&#34;&gt;Send a test mail with virus attached&lt;/h1&gt;
-
-&lt;p&gt;We use EICAR test file.&lt;/p&gt;
-
-&lt;p&gt;Download EICAR file locally.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;wget https://secure.eicar.org/eicar.com.txt&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;For command-line sending, you will need&lt;/p&gt;
 </description>
     </item>
     
