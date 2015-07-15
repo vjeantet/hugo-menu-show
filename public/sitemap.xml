@@ -8,22 +8,22 @@
   </url>
   
   <url>
-    <loc>http://vjeantet.github.io/hugo-menu-show/Amazon-AWS/</loc>
-    <lastmod>2015-07-15T22:17:00+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://vjeantet.github.io/hugo-menu-show/amazon-aws/elb/</loc>
-    <lastmod>2015-07-15T22:17:00+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://vjeantet.github.io/hugo-menu-show/amazon-aws/AutoScaling/</loc>
     <lastmod>2015-07-15T22:17:00+02:00</lastmod>
   </url>
   
   <url>
+    <loc>http://vjeantet.github.io/hugo-menu-show/Amazon-AWS/</loc>
+    <lastmod>2015-07-15T22:17:00+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://vjeantet.github.io/hugo-menu-show/amazon-aws/Change-Instance-Type-in-AutoScaling/</loc>
+    <lastmod>2015-07-15T22:17:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://vjeantet.github.io/hugo-menu-show/amazon-aws/elb/</loc>
     <lastmod>2015-07-15T22:17:00+02:00</lastmod>
   </url>
   
@@ -83,12 +83,12 @@
   </url>
   
   <url>
-    <loc>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/Mail-Server-Testing/</loc>
+    <loc>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/Mailserver-Port-Numbers/</loc>
     <lastmod>2015-07-15T22:17:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/Mailserver-Port-Numbers/</loc>
+    <loc>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/Mail-Server-Testing/</loc>
     <lastmod>2015-07-15T22:17:00+02:00</lastmod>
   </url>
   
