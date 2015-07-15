@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Amazon-aws on Hugo plays with menus</title>
+    <link>http://vjeantet.github.io/hugo-menu-show/amazon-aws/</link>
+    <description>Recent content in Amazon-aws on Hugo plays with menus</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 15 Jul 2015 22:17:00 +0200</lastBuildDate>
+    <atom:link href="http://vjeantet.github.io/hugo-menu-show/amazon-aws/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Amazon ELB and multi-domain SAN/SSL Setup</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/amazon-aws/elb/</link>
+      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
+      
+      <guid>http://vjeantet.github.io/hugo-menu-show/amazon-aws/elb/</guid>
+      <description>
+
+&lt;p&gt;We will use a machine where OpenSSL is already installed. This can be your one of EC2 instance or local machine.&lt;/p&gt;
+
+&lt;p&gt;Following is carried out on Ubuntu.&lt;/p&gt;
+
+&lt;p&gt;Install OpenSSL&lt;/p&gt;
+
+&lt;p&gt;Just run following command:&lt;/p&gt;
+
+&lt;p&gt;apt-get install openssl
+OpenSSL Config File&lt;/p&gt;
+
+&lt;p&gt;Copy OpenSSL config file&lt;/p&gt;
+
+&lt;p&gt;Create a temporary folder:&lt;/p&gt;
+
+&lt;p&gt;cd ~ &amp;amp;&amp;amp; mkdir elbssl &amp;amp;&amp;amp; cd elbssl
+Create a copy of OpenSSL config file in above dir&lt;/p&gt;
+
+&lt;p&gt;cp /etc/ssl/openssl.cnf elbssl.cnf
+Editing Config File&lt;/p&gt;
+
+&lt;p&gt;Open elbssl.cnf and look for  [ req ] section.&lt;/p&gt;
+
+&lt;p&gt;Find add uncomment following line:&lt;/p&gt;
+
+&lt;p&gt;req_extensions = v3_req
+If you don’t find a line like above, you can add one.&lt;/p&gt;
+
+&lt;p&gt;This will make sure our next section [ v3_req ] is read/used.&lt;/p&gt;
+
+&lt;p&gt;In [ v3_req ] section, add following line:&lt;/p&gt;
+
+&lt;p&gt;subjectAltName = @alt_names
+It will look like:&lt;/p&gt;
+
+&lt;p&gt;[ v3_req ]&lt;/p&gt;
+
+&lt;h1 id=&#34;extensions-to-add-to-a-certificate-request:9e12f281d8a4b1679b13bc1a8c55228d&#34;&gt;Extensions to add to a certificate request&lt;/h1&gt;
+
+&lt;p&gt;basicConstraints = CA:FALSE
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment
+subjectAltName = @alt_names
+Finally add a new section called [ alt_names ] towards end of file listing all domain variation you are planning to use.&lt;/p&gt;
+
+&lt;p&gt;[ alt_names ]
+DNS.1 = www.example.com
+DNS.2 = example.com
+Note: I couldn’t  find out whether we need to add domain used in common-name field again here. So I added it again here. Now in common-field, we use www.example.com version – if SSL is for www and non-www versions of domains.&lt;/p&gt;
+
+&lt;p&gt;Now you have your OpenSSL config file ready.&lt;/p&gt;
+
+&lt;p&gt;OpenSSL Private Key &amp;amp; CSR&lt;/p&gt;
+
+&lt;p&gt;Private Key&lt;/p&gt;
+
+&lt;p&gt;Run following command to generate private key. Do not use passphrase as nginx will use this private key.&lt;/p&gt;
+
+&lt;p&gt;openssl genrsa -out example.com.key 2048
+Certificate Signing Request – CSR generation&lt;/p&gt;
+
+&lt;p&gt;Next, we will generate CSR using private key above AND site-specific copy of OpenSSL config file.&lt;/p&gt;
+
+&lt;p&gt;openssl req -new -key example.com.key -out example.com.csr -config elbssl.cnf
+Please note -config switch. If you forget it, your CSR won’t include (Subject) Alternative (domain) Names.&lt;/p&gt;
+
+&lt;p&gt;Verify CSR&lt;/p&gt;
+
+&lt;p&gt;Since sending CSR and getting certificate is time consuming process, it’s better to verify if CSR is generated correctly.&lt;/p&gt;
+
+&lt;p&gt;Run following command:&lt;/p&gt;
+
+&lt;p&gt;openssl req -in example.com.csr -noout -text
+You will see something like below in output. Please make sure you read highlighted area.&lt;/p&gt;
+
+&lt;p&gt;Certificate Request:
+    Data:
+        Version: 0 (0x0)
+        Subject: C=IN, ST=MH, L=PUNE, O=RTCAMP SOLUTIONS PRIVATE LIMITED., CN=www.example.com/emailAddress=admin@example.com
+    [&amp;hellip;]
+            X509v3 Basic Constraints:
+                CA:FALSE
+            X509v3 Key Usage:
+                Digital Signature, Non Repudiation, Key Encipherment
+            X509v3 Subject Alternative Name:
+                DNS:www.example.com, DNS:example.com
+    [&amp;hellip;]
+Submitting CSR and Requesting certificate&lt;/p&gt;
+
+&lt;p&gt;Once you have CSR, the process of submitting it is online and often coupled with extra steps depending of certificate provider.&lt;/p&gt;
+
+&lt;p&gt;You can refer to GoDaddy workflow and Thawte Workflow here.&lt;/p&gt;
+
+&lt;p&gt;Also, when you get certificate from provider, you can verify if its correct by using this article.&lt;/p&gt;
+
+&lt;p&gt;Uploading Certificate to Amazon ELB&lt;/p&gt;
+
+&lt;p&gt;You may need to convert Private Key, Certificate and bundle/intermediate-certificate in PEM format before uploading them to Amazon ELB.&lt;/p&gt;
+
+&lt;p&gt;Please refer to “Upload the Signed Certificate” section in – &lt;a href=&#34;http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/ssl-server-cert.html&#34;&gt;http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/ssl-server-cert.html&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Auto Scaling</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/amazon-aws/autoscaling/</link>
+      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
+      
+      <guid>http://vjeantet.github.io/hugo-menu-show/amazon-aws/autoscaling/</guid>
+      <description>&lt;p&gt;AutoScaling allow you to automatically add or remove your EC2 instances according to your defined condition. To setup autoscaling we create autoscaling group and defined launch configuration for that group so, whenever any instance added in to group it will use that launch configuration .&lt;/p&gt;
+
+&lt;p&gt;Following are the step to setup auto scaling on AWS&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Create AMI of EC2 instance&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;AMI (Amazon Machine Image) is used while new instance is created automatically. We define unique AMI id (e.g ami-xxxxxxxx) in launch configuration.&lt;/p&gt;
+
+&lt;p&gt;Following is the first step to create AMI (there is alternative option also).&lt;/p&gt;
+
+&lt;p&gt;create-aim-1
+First step to create AMI
+In next step it will ask for Image Name, description and other options. Please use help for more info.&lt;/p&gt;
+
+&lt;p&gt;create-aim-2
+Final step to create AMI
+After clicking Create Image button, It will start create image process and give you unique AMI id something like ami-xxxxxxxx that will required in create launch configuration. It will take time to create image depend on the size of your EBS.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Create launch configuration&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;This is the required step to setup autoscaling. As name state, Launch configuration is used when any instance is added to autoscaling group. There are some required field like launch-configuration-name, image-id, instance-type, key, security-groups.&lt;/p&gt;
+
+&lt;p&gt;Lets create launch configuration.&lt;/p&gt;
+
+&lt;p&gt;Step 1 : Go to Launch Config Page and Start Create Launch configuration&lt;/p&gt;
+
+&lt;p&gt;create-new-launch-configuration-1
+Step 1 : Go to Launch Config Page and Start Create Launch configuration
+Step 2 : Select AMI&lt;/p&gt;
+
+&lt;p&gt;create-new-launch-configuration-2
+Step 2 : Select AMI
+OR you select existing EMI if you are already created&lt;/p&gt;
+
+&lt;p&gt;create-new-launch-configuration-3
+Step 2 : Choose Existing AMI
+Step 3 : Choose Instance Type&lt;/p&gt;
+
+&lt;p&gt;create-new-launch-configuration-4
+Step 3: Choose Instance Type
+Step 4 : Name launch configuration &amp;amp; other info&lt;/p&gt;
+
+&lt;p&gt;create-new-launch-configuration-5
+Step 4: Name launch configuration &amp;amp; other info
+Step 5 : Choose Storage&lt;/p&gt;
+
+&lt;p&gt;create-new-launch-configuration-6
+Step 5: Choose Storage
+Step 6 : Choose Security Group&lt;/p&gt;
+
+&lt;p&gt;create-new-launch-configuration-7
+Step 6: Choose Security Group
+Step 7 : Review&lt;/p&gt;
+
+&lt;p&gt;create-new-launch-configuration-8
+Step 7: Review
+Step 8 : Choose Key pair&lt;/p&gt;
+
+&lt;p&gt;create-new-launch-configuration-9
+Step 8: Choose Key pair
+If you are use cli then type following command to create launch config&lt;/p&gt;
+
+&lt;p&gt;aws autoscaling create-launch-configuration &amp;ndash;launch-configuration-name aws-as-conf &amp;ndash;image-id ami-xxxxxxxx &amp;ndash;instance-type m1.large &amp;ndash;key myPrivate &amp;ndash;security-groups mySecurityGroup&lt;/p&gt;
+
+&lt;p&gt;To List all launch configuration&lt;/p&gt;
+
+&lt;p&gt;aws autoscaling describe-launch-configurations&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Create Autoscaling Group&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Autoscaling group use launch configuration to create instance and add it into group. There are some require parameters like availability-zones, min/max-size, load-balancer-names, health-check-type etc&lt;/p&gt;
+
+&lt;p&gt;@TODO : UI Steps&lt;/p&gt;
+
+&lt;p&gt;If you are use cli then type following command to&lt;/p&gt;
+
+&lt;p&gt;aws autoscaling create-auto-scaling-group &amp;ndash;auto-scaling-group-name test-autoscal-group &amp;ndash;launch-configuration aws-as-conf &amp;ndash;availability-zones us-east-1a us-east-1b &amp;ndash;min-size 1 &amp;ndash;max-size 5 &amp;ndash;load-balancer-names test-lb &amp;ndash;health-check-type ELB &amp;ndash;health-check-grace-period 300 &amp;ndash;tag &amp;ldquo;k=Name, v=Test AS, p=true&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;Add instance policy :&lt;/p&gt;
+
+&lt;p&gt;aws autoscaling put-scaling-policy &amp;ndash;auto-scaling-group-name test-autoscal-group &amp;ndash;policy-name test-as-add-one &amp;ndash;scaling-adjustment 1 &amp;ndash;adjustment-type ChangeInCapacity&lt;/p&gt;
+
+&lt;p&gt;Remove instance policy :&lt;/p&gt;
+
+&lt;p&gt;aws autoscaling put-scaling-policy &amp;ndash;auto-scaling-group-name test-autoscal-group &amp;ndash;policy-name test-as-remove-one &amp;ndash;scaling-adjustment -1 &amp;ndash;adjustment-type ChangeInCapacity&lt;/p&gt;
+
+&lt;p&gt;Creating Cloud watch alarms from UI&lt;/p&gt;
+
+&lt;p&gt;@TODO: UI steps&lt;/p&gt;
+
+&lt;p&gt;Table&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Change Instance Type in AutoScaling</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/amazon-aws/change-instance-type-in-autoscaling/</link>
+      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
+      
+      <guid>http://vjeantet.github.io/hugo-menu-show/amazon-aws/change-instance-type-in-autoscaling/</guid>
+      <description>&lt;p&gt;AWS does not allow to edit launch configuration. If you notice, we define instance type at time of launch configuration. So if you want to change instance type in Auto Scaling group than you need to create new launch configuration for that.&lt;/p&gt;
+
+&lt;p&gt;Following are the step to edit AutoScaling group.&lt;/p&gt;
+
+&lt;p&gt;change-autoscaling-group-instance-type-18
+Change AutoScaling Group Instance Type
+Note: This does not apply to running instances in this group, To apply it on running instance please terminate old instance. New instance will be create as per defined in launch configuration.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

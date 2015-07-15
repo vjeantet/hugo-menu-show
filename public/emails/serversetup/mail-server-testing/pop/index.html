@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<title>POP Tests &middot; Hugo plays with menus</title>
+	<style>
+    .related-links li {
+        display: list-item;
+        text-align: -webkit-match-parent;
+        margin-bottom:.3125rem
+    }
+    .related-links ul {
+        display: block;
+        list-style-type: disc;
+        -webkit-margin-before: 1em;
+        -webkit-margin-after: 1em;
+        -webkit-margin-start: 0px;
+        -webkit-margin-end: 0px;
+        -webkit-padding-start: 40px;
+    }
+	</style>
+
+</head>
+
+<body >
+<div class="header-main">
+	<h1><a href="http://vjeantet.github.io/hugo-menu-show/index.html" rel="home">Hugo plays with menus</a></h1>
+</div>
+
+<aside>
+
+<style type="text/css">
+	aside li.active::after {
+		content: "<";
+	}
+</style>
+
+	
+<h1 >Navigation</h1>
+<ul>
+
+
+
+	<li  class="">
+    <a href="http://vjeantet.github.io/hugo-menu-show/amazon-aws/">Amazon AWS</a>
+	</li>
+        
+	    
+
+
+	<li  class="">
+    <a href="http://vjeantet.github.io/hugo-menu-show/backup/">Backup</a>
+	</li>
+        
+	    
+
+
+	<li  class="active">
+    <a href="http://vjeantet.github.io/hugo-menu-show/emails/">Emails</a>
+	</li>
+        
+        
+        
+	    
+	    <ul>
+	    
+	    
+	    
+	    
+	    <li class="">
+	        <a href="http://vjeantet.github.io/hugo-menu-show/emails/clients/">Clients </a>
+	    </li>
+			
+
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    <li class="active">
+	        <a href="http://vjeantet.github.io/hugo-menu-show/emails/serversetup/">Server Setup </a>
+	    </li>
+			
+			
+			
+			
+		    <ul>
+		    
+		    
+		    <li class="active">
+		        <a href="http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/">Mail-Server Testing</a>
+		    </li>
+
+				
+				
+				
+				
+			    <ul>
+			    
+			    
+			    
+			    
+			    
+			    
+			    
+			    </ul>
+			    
+			    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    </ul>
+		    
+		    
+
+	    
+	    
+	    </ul>
+	    
+	    
+	    
+
+</ul>
+
+
+</aside>
+
+<div>
+    <nav>
+        <strong>Breadcrumbs : </strong><a href="http://vjeantet.github.io/hugo-menu-show">Home</a>  > <a href='http://vjeantet.github.io/hugo-menu-show/emails/'>Emails</a> > <a href='http://vjeantet.github.io/hugo-menu-show/emails/serversetup/'>Server Setup</a> > <a href='http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/'>Mail-Server Testing</a>  > POP Tests
+    </nav>
+    <h1 >POP Tests</h1>
+
+    
+
+<h1 id="connect-to-server:08b3b812ae2d48c0e34679b48eed991a">Connect to server</h1>
+
+<pre><code>telnet example.com 110
+openssl s_client -crlf -connect example:995
+</code></pre>
+
+<h1 id="pop-test-commands:08b3b812ae2d48c0e34679b48eed991a">POP Test Commands</h1>
+
+<pre><code>USER admin@example.com
+PASS password
+STAT 
+LIST
+QUIT
+</code></pre>
+
+
+    
+    
+
+
+    
+    
+    <hr/>
+    <h1>Sibling pages</h1>
+    <nav class="related-links">
+    	  
+          
+        
+        
+        
+        	<li><a href="http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/antivirus/" >Antivirus Tests</a></li>
+        
+        
+        
+        
+        
+        	<li><a href="http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/imap/" >IMAP Tests</a></li>
+        
+        
+        
+        
+        
+    </nav>
+    
+
+</div>
+
+	
+</body>
+</html>
