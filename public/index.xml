@@ -10,6 +10,31 @@
     <atom:link href="http://vjeantet.github.io/hugo-menu-show/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Change Instance Type in AutoScaling</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/amazon-aws/change-instance-type-in-autoscaling/</link>
+      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
+      
+      <guid>http://vjeantet.github.io/hugo-menu-show/amazon-aws/change-instance-type-in-autoscaling/</guid>
+      <description>&lt;p&gt;AWS does not allow to edit launch configuration. If you notice, we define instance type at time of launch configuration. So if you want to change instance type in Auto Scaling group than you need to create new launch configuration for that.&lt;/p&gt;
+
+&lt;p&gt;Following are the step to edit AutoScaling group.&lt;/p&gt;
+
+&lt;p&gt;change-autoscaling-group-instance-type-18
+Change AutoScaling Group Instance Type
+Note: This does not apply to running instances in this group, To apply it on running instance please terminate old instance. New instance will be create as per defined in launch configuration.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Amazon AWS</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/amazon-aws/</link>
+      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
+      
+      <guid>http://vjeantet.github.io/hugo-menu-show/amazon-aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Auto Scaling</title>
       <link>http://vjeantet.github.io/hugo-menu-show/amazon-aws/autoscaling/</link>
       <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
@@ -112,49 +137,6 @@ If you are use cli then type following command to create launch config&lt;/p&gt;
 &lt;p&gt;@TODO: UI steps&lt;/p&gt;
 
 &lt;p&gt;Table&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Duplicity &#43; Amazon S3</title>
-      <link>http://vjeantet.github.io/hugo-menu-show/backup/duplicity/</link>
-      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
-      
-      <guid>http://vjeantet.github.io/hugo-menu-show/backup/duplicity/</guid>
-      <description>
-
-&lt;p&gt;In this article we will setup automated backup using Duplicity and Amazon S3.&lt;/p&gt;
-
-&lt;h1 id=&#34;installation:f9fbbc02022c03f9d848466806cbf330&#34;&gt;Installation&lt;/h1&gt;
-
-&lt;p&gt;Run following commands to install latest duplicity and python-boto library (duplicity needs it for Amazon S3).&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;apt-add-repository ppa:duplicity-team/ppa
-apt-get update
-apt-get install duplicity
-apt-get install python-pip
-pip install boto
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;amazon-s3:f9fbbc02022c03f9d848466806cbf330&#34;&gt;Amazon S3&lt;/h1&gt;
-
-&lt;h2 id=&#34;s3-bucket:f9fbbc02022c03f9d848466806cbf330&#34;&gt;S3 Bucket&lt;/h2&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Change Instance Type in AutoScaling</title>
-      <link>http://vjeantet.github.io/hugo-menu-show/amazon-aws/change-instance-type-in-autoscaling/</link>
-      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
-      
-      <guid>http://vjeantet.github.io/hugo-menu-show/amazon-aws/change-instance-type-in-autoscaling/</guid>
-      <description>&lt;p&gt;AWS does not allow to edit launch configuration. If you notice, we define instance type at time of launch configuration. So if you want to change instance type in Auto Scaling group than you need to create new launch configuration for that.&lt;/p&gt;
-
-&lt;p&gt;Following are the step to edit AutoScaling group.&lt;/p&gt;
-
-&lt;p&gt;change-autoscaling-group-instance-type-18
-Change AutoScaling Group Instance Type
-Note: This does not apply to running instances in this group, To apply it on running instance please terminate old instance. New instance will be create as per defined in launch configuration.&lt;/p&gt;
 </description>
     </item>
     
@@ -269,12 +251,30 @@ Submitting CSR and Requesting certificate&lt;/p&gt;
     </item>
     
     <item>
-      <title>Amazon AWS</title>
-      <link>http://vjeantet.github.io/hugo-menu-show/amazon-aws/</link>
+      <title>Duplicity &#43; Amazon S3</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/backup/duplicity/</link>
       <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
       
-      <guid>http://vjeantet.github.io/hugo-menu-show/amazon-aws/</guid>
-      <description></description>
+      <guid>http://vjeantet.github.io/hugo-menu-show/backup/duplicity/</guid>
+      <description>
+
+&lt;p&gt;In this article we will setup automated backup using Duplicity and Amazon S3.&lt;/p&gt;
+
+&lt;h1 id=&#34;installation:f9fbbc02022c03f9d848466806cbf330&#34;&gt;Installation&lt;/h1&gt;
+
+&lt;p&gt;Run following commands to install latest duplicity and python-boto library (duplicity needs it for Amazon S3).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;apt-add-repository ppa:duplicity-team/ppa
+apt-get update
+apt-get install duplicity
+apt-get install python-pip
+pip install boto
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;amazon-s3:f9fbbc02022c03f9d848466806cbf330&#34;&gt;Amazon S3&lt;/h1&gt;
+
+&lt;h2 id=&#34;s3-bucket:f9fbbc02022c03f9d848466806cbf330&#34;&gt;S3 Bucket&lt;/h2&gt;
+</description>
     </item>
     
     <item>
@@ -284,46 +284,6 @@ Submitting CSR and Requesting certificate&lt;/p&gt;
       
       <guid>http://vjeantet.github.io/hugo-menu-show/backup/</guid>
       <description>&lt;p&gt;Tutorials for backing up your server to (S)FTP, Amazon S3, CrashPlan, Local-rsnapshot and more.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Checking FQDN, Reverse-DNS/PTR, MX record</title>
-      <link>http://vjeantet.github.io/hugo-menu-show/emails/checking-fqdn-reverse-dns-ptr-mx-record/</link>
-      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
-      
-      <guid>http://vjeantet.github.io/hugo-menu-show/emails/checking-fqdn-reverse-dns-ptr-mx-record/</guid>
-      <description>
-
-&lt;p&gt;Before you start a mail server, you must verify your server’s FQDN, reverse PTR, MX records.&lt;/p&gt;
-
-&lt;h1 id=&#34;fqdn:87ecb64fd2948822804c4a919252609e&#34;&gt;FQDN&lt;/h1&gt;
-
-&lt;p&gt;FQDN (fully qualified domain name) is a name assigned to an individual machine. Its purpose is to uniquely identify a single machine across internet. It is name of your server.&lt;/p&gt;
-
-&lt;h2 id=&#34;checking-hostname-fqdn:87ecb64fd2948822804c4a919252609e&#34;&gt;Checking Hostname (FQDN)&lt;/h2&gt;
-
-&lt;p&gt;Following commands show outcome for test.rtcamp.com (a subdomain we used for test mail server setup)&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>DKIM with Postfix</title>
-      <link>http://vjeantet.github.io/hugo-menu-show/emails/dkim-with-postfix/</link>
-      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
-      
-      <guid>http://vjeantet.github.io/hugo-menu-show/emails/dkim-with-postfix/</guid>
-      <description>
-
-&lt;p&gt;If mails from your web-server/webapp is having delivery issues, DKIM (DomainKeys Identified Mail) can help you big time.&lt;/p&gt;
-
-&lt;p&gt;Its highly recommended to use DKIM for outgoing emails even if your server is not running any kind of mail-hosting.&lt;/p&gt;
-
-&lt;h1 id=&#34;install-dkim:06d3e8bedaf9eb5e05e3f961443df640&#34;&gt;Install DKIM&lt;/h1&gt;
-
-&lt;p&gt;&lt;code&gt;apt-get install opendkim opendkim-tools&lt;/code&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;edit:06d3e8bedaf9eb5e05e3f961443df640&#34;&gt;Edit&lt;/h1&gt;
 </description>
     </item>
     
@@ -363,6 +323,26 @@ Step 6 : Outgoing Mail server Info&lt;/p&gt;
     </item>
     
     <item>
+      <title>Checking FQDN, Reverse-DNS/PTR, MX record</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/emails/checking-fqdn-reverse-dns-ptr-mx-record/</link>
+      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
+      
+      <guid>http://vjeantet.github.io/hugo-menu-show/emails/checking-fqdn-reverse-dns-ptr-mx-record/</guid>
+      <description>
+
+&lt;p&gt;Before you start a mail server, you must verify your server’s FQDN, reverse PTR, MX records.&lt;/p&gt;
+
+&lt;h1 id=&#34;fqdn:87ecb64fd2948822804c4a919252609e&#34;&gt;FQDN&lt;/h1&gt;
+
+&lt;p&gt;FQDN (fully qualified domain name) is a name assigned to an individual machine. Its purpose is to uniquely identify a single machine across internet. It is name of your server.&lt;/p&gt;
+
+&lt;h2 id=&#34;checking-hostname-fqdn:87ecb64fd2948822804c4a919252609e&#34;&gt;Checking Hostname (FQDN)&lt;/h2&gt;
+
+&lt;p&gt;Following commands show outcome for test.rtcamp.com (a subdomain we used for test mail server setup)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Mozilla Thunderbird</title>
       <link>http://vjeantet.github.io/hugo-menu-show/emails/clients/mozilla-thunderbird/</link>
       <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
@@ -391,64 +371,22 @@ Outgoing: SMTP; Port&lt;/li&gt;
     </item>
     
     <item>
-      <title>Postfix Queue Management</title>
-      <link>http://vjeantet.github.io/hugo-menu-show/emails/postfix-queue-management/</link>
+      <title>DKIM with Postfix</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/emails/dkim-with-postfix/</link>
       <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
       
-      <guid>http://vjeantet.github.io/hugo-menu-show/emails/postfix-queue-management/</guid>
+      <guid>http://vjeantet.github.io/hugo-menu-show/emails/dkim-with-postfix/</guid>
       <description>
 
-&lt;p&gt;Goal: To find which mails are stuck in mail queue and why?&lt;/p&gt;
+&lt;p&gt;If mails from your web-server/webapp is having delivery issues, DKIM (DomainKeys Identified Mail) can help you big time.&lt;/p&gt;
 
-&lt;p&gt;If emails are getting delayed, its better to inspect postfix mail queues, coupled with postfix mail log.&lt;/p&gt;
+&lt;p&gt;Its highly recommended to use DKIM for outgoing emails even if your server is not running any kind of mail-hosting.&lt;/p&gt;
 
-&lt;h1 id=&#34;status-shape-of-mail-queue:fefacb2bb08f3b92c214ef2bc59cbe67&#34;&gt;Status/Shape of Mail Queue&lt;/h1&gt;
+&lt;h1 id=&#34;install-dkim:06d3e8bedaf9eb5e05e3f961443df640&#34;&gt;Install DKIM&lt;/h1&gt;
 
-&lt;p&gt;Postfix maintains different queues for different purpose.active  and  deferred queues are of our interest.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;apt-get install opendkim opendkim-tools&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Ideally, we should never have a mail&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Antivirus Tests</title>
-      <link>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/antivirus/</link>
-      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
-      
-      <guid>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/antivirus/</guid>
-      <description>
-
-&lt;h1 id=&#34;send-a-test-mail-with-virus-attached:046302e3e204826d1d0c492c00354b95&#34;&gt;Send a test mail with virus attached&lt;/h1&gt;
-
-&lt;p&gt;We use EICAR test file.&lt;/p&gt;
-
-&lt;p&gt;Download EICAR file locally.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;wget https://secure.eicar.org/eicar.com.txt&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;For command-line sending, you will need&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Mailserver Port Numbers</title>
-      <link>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mailserver-port-numbers/</link>
-      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
-      
-      <guid>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mailserver-port-numbers/</guid>
-      <description>&lt;p&gt;Following are port numbers for different services:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;SMTP – 25 (465 with SSL, 587 with TLS)&lt;/li&gt;
-&lt;li&gt;POP3 – 110 (995 for SSL)&lt;/li&gt;
-&lt;li&gt;IMAP – 143 (993 for SSL)&lt;/li&gt;
-&lt;li&gt;ManageSieve – 4190 (Gmail-like mail filtering)&lt;/li&gt;
-&lt;li&gt;Amavis – 10025 (spam/antivirus checks)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;You can find/verify ports used by postfix and dovecot using following commands:&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;netstat -tulpn | egrep &#39;master|dovecot&#39;&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id=&#34;edit:06d3e8bedaf9eb5e05e3f961443df640&#34;&gt;Edit&lt;/h1&gt;
 </description>
     </item>
     
@@ -476,6 +414,58 @@ openssl s_client -crlf -connect example.com:993
 05 FETCH 1 ALL
 06 LOGOUT
 &lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Antivirus Tests</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/antivirus/</link>
+      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
+      
+      <guid>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/antivirus/</guid>
+      <description>
+
+&lt;h1 id=&#34;send-a-test-mail-with-virus-attached:046302e3e204826d1d0c492c00354b95&#34;&gt;Send a test mail with virus attached&lt;/h1&gt;
+
+&lt;p&gt;We use EICAR test file.&lt;/p&gt;
+
+&lt;p&gt;Download EICAR file locally.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;wget https://secure.eicar.org/eicar.com.txt&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;For command-line sending, you will need&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Postfix Queue Management</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/emails/postfix-queue-management/</link>
+      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
+      
+      <guid>http://vjeantet.github.io/hugo-menu-show/emails/postfix-queue-management/</guid>
+      <description>
+
+&lt;p&gt;Goal: To find which mails are stuck in mail queue and why?&lt;/p&gt;
+
+&lt;p&gt;If emails are getting delayed, its better to inspect postfix mail queues, coupled with postfix mail log.&lt;/p&gt;
+
+&lt;h1 id=&#34;status-shape-of-mail-queue:fefacb2bb08f3b92c214ef2bc59cbe67&#34;&gt;Status/Shape of Mail Queue&lt;/h1&gt;
+
+&lt;p&gt;Postfix maintains different queues for different purpose.active  and  deferred queues are of our interest.&lt;/p&gt;
+
+&lt;p&gt;Ideally, we should never have a mail&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Mail-Server Testing</title>
+      <link>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/</link>
+      <pubDate>Wed, 15 Jul 2015 22:17:00 +0200</pubDate>
+      
+      <guid>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/</guid>
+      <description>&lt;p&gt;If you are setting up a new mail server, its better to test SMTP, IMAP and/or POP.&lt;/p&gt;
+
+&lt;p&gt;Following pages describes test procedure (including sample commands) for each protocol involved.&lt;/p&gt;
 </description>
     </item>
     
