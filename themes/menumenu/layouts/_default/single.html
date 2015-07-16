@@ -2,10 +2,30 @@
 {{ partial "navigation.html" . }}
 
 <div>
-    <nav>
-        <strong>Breadcrumbs : </strong><a href="{{.Site.BaseURL}}">Home</a> {{ $.Scratch.Get "Breadcrumbs" | safeHTML }} {{ if eq .Params.menu.main.identifier nil}} > {{.Title}}{{end}}
-    </nav>
     <h1 >{{ .Title }}</h1>
+    <nav class="breadcrumb">
+        <strong>Breadcrumb</strong> : <a href="{{.Site.BaseURL}}">Home</a> {{ $.Scratch.Get "Breadcrumbs" | safeHTML }} {{ if eq .Params.menu.main.identifier nil}} > {{.Title}}{{end}}
+    </nav>
+    
+
+    <!-- Sibbling contents -->
+    {{ if eq .Params.menu.main.identifier nil}}
+    
+    
+    <nav class="related-links sibling">
+        <h1>Sibling pages</h1>
+        {{ $curentURL :=  .RelPermalink }}  
+        {{ $currentMenu :=  ($.Scratch.Get "CurrentMenu") }}  
+        {{ range $currentMenu.Children }}
+        {{ if ne .URL $curentURL}}
+        {{ if eq .Identifier ""}}
+            <li><a href="{{.URL}}" >{{ .Name }}</a></li>
+        {{ end }}
+        {{ end }}
+        {{ end }}
+    </nav>
+    {{ end }}
+
 
     {{ .Content }}
 
@@ -21,22 +41,6 @@
     {{ end }}
 
 
-    <!-- Sibbling contents -->
-    {{ if eq .Params.menu.main.identifier nil}}
-    <hr/>
-    <h1>Sibling pages</h1>
-    <nav class="related-links">
-    	{{ $curentURL :=  .RelPermalink }}  
-        {{ $currentMenu :=  ($.Scratch.Get "CurrentMenu") }}  
-        {{ range $currentMenu.Children }}
-        {{ if ne .URL $curentURL}}
-        {{ if eq .Identifier ""}}
-        	<li><a href="{{.URL}}" >{{ .Name }}</a></li>
-        {{ end }}
-        {{ end }}
-        {{ end }}
-    </nav>
-    {{ end }}
 
 </div>
 

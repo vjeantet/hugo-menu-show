@@ -9,14 +9,14 @@ parent = "Emails-serversetup-test"
 +++
 
 
-# Connect to server
+## Connect to server
 
 ```
 telnet example.com 143
 openssl s_client -crlf -connect example.com:993
 ```
 
-# IMAP Test Commands
+## IMAP Test Commands
 ```
 01 LOGIN admin@example.com password
 02 LIST "" *

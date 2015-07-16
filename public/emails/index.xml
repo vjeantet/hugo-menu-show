@@ -122,13 +122,13 @@ Step 6 : Outgoing Mail server Info&lt;/p&gt;
       <guid>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/imap/</guid>
       <description>
 
-&lt;h1 id=&#34;connect-to-server:456ea893f70e958800bcccf72724b241&#34;&gt;Connect to server&lt;/h1&gt;
+&lt;h2 id=&#34;connect-to-server:456ea893f70e958800bcccf72724b241&#34;&gt;Connect to server&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;telnet example.com 143
 openssl s_client -crlf -connect example.com:993
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;imap-test-commands:456ea893f70e958800bcccf72724b241&#34;&gt;IMAP Test Commands&lt;/h1&gt;
+&lt;h2 id=&#34;imap-test-commands:456ea893f70e958800bcccf72724b241&#34;&gt;IMAP Test Commands&lt;/h2&gt;
 
 &lt;p&gt;`&lt;code&gt;
 01 LOGIN admin@example.com password
