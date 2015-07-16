@@ -20,15 +20,16 @@
         -webkit-padding-start: 40px;
     }
 	</style>
+    <link rel="stylesheet" href="http://vjeantet.github.io/hugo-menu-showcss.css" type="text/css" >
 
 </head>
 
 <body >
 <div class="header-main">
-	<h1><a href="http://vjeantet.github.io/hugo-menu-show/index.html" rel="home">Hugo plays with menus</a></h1>
+	<h1><a href="http://vjeantet.github.io/hugo-menu-showindex.html" rel="home">Hugo plays with menus</a></h1>
 </div>
 
-<aside>
+<div class="aside">
 
 <style type="text/css">
 	aside li.active::after {
@@ -132,23 +133,51 @@
 </ul>
 
 
-</aside>
+</div>
 
 <div>
-    <nav>
-        <strong>Breadcrumbs : </strong><a href="http://vjeantet.github.io/hugo-menu-show">Home</a>  > <a href='http://vjeantet.github.io/hugo-menu-show/emails/'>Emails</a> > <a href='http://vjeantet.github.io/hugo-menu-show/emails/serversetup/'>Server Setup</a> > <a href='http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/'>Mail-Server Testing</a>  > IMAP Tests
-    </nav>
     <h1 >IMAP Tests</h1>
+    <nav class="breadcrumb">
+        <strong>Breadcrumb</strong> : <a href="http://vjeantet.github.io/hugo-menu-show">Home</a>  > <a href='http://vjeantet.github.io/hugo-menu-show/emails/'>Emails</a> > <a href='http://vjeantet.github.io/hugo-menu-show/emails/serversetup/'>Server Setup</a> > <a href='http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/'>Mail-Server Testing</a>  > IMAP Tests
+    </nav>
+    
+
+    
+    
+    
+    
+    <nav class="related-links sibling">
+        <h1>Sibling pages</h1>
+          
+          
+        
+        
+        
+            <li><a href="http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/antivirus/" >Antivirus Tests</a></li>
+        
+        
+        
+        
+        
+        
+        
+            <li><a href="http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/pop/" >POP Tests</a></li>
+        
+        
+        
+    </nav>
+    
+
 
     
 
-<h1 id="connect-to-server:456ea893f70e958800bcccf72724b241">Connect to server</h1>
+<h2 id="connect-to-server:456ea893f70e958800bcccf72724b241">Connect to server</h2>
 
 <pre><code>telnet example.com 143
 openssl s_client -crlf -connect example.com:993
 </code></pre>
 
-<h1 id="imap-test-commands:456ea893f70e958800bcccf72724b241">IMAP Test Commands</h1>
+<h2 id="imap-test-commands:456ea893f70e958800bcccf72724b241">IMAP Test Commands</h2>
 
 <p>`<code>
 01 LOGIN admin@example.com password
@@ -164,30 +193,6 @@ openssl s_client -crlf -connect example.com:993
     
 
 
-    
-    
-    <hr/>
-    <h1>Sibling pages</h1>
-    <nav class="related-links">
-    	  
-          
-        
-        
-        
-        	<li><a href="http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/antivirus/" >Antivirus Tests</a></li>
-        
-        
-        
-        
-        
-        
-        
-        	<li><a href="http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/pop/" >POP Tests</a></li>
-        
-        
-        
-    </nav>
-    
 
 </div>
 

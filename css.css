@@ -1,0 +1,89 @@
+html {
+font-family: "Lato",sans-serif;
+font-size: 1rem;
+
+color: #444;
+font-size: 1.0625rem;
+color: rgba(0, 0, 0, 0.8);
+}
+li{
+	list-style-type: circle;
+	list-style-position: inside;
+}
+
+h1{font-weight: 400;}
+
+a:hover, a:active {
+    color: #2A75BA;
+    outline: 0px none;
+    text-decoration: underline;
+}
+a {
+    background-color: transparent;
+    color: #2A75BA;
+    text-decoration: none;
+}
+
+.header-main h1{
+	border-bottom: 1px solid #DDD;
+	/*padding: 1rem 0px;*/
+	margin-bottom: 2rem;
+	position: relative;
+}
+
+.breadcrumb {
+	background-color: #DDDDDD;
+    padding: 8px 0px;
+    margin: 0px;
+    list-style: outside none none;
+}
+
+.aside {
+    background-color: #DDDDDD;
+    padding-bottom: 10px;
+    padding-top: 10px;
+
+}
+
+.sibling{
+	background-color: #DDDDDD;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    float:right;
+    padding-left: 4px;
+}
+
+.sibling h1{
+	padding: 0px;
+	border-bottom: 1px solid #828282 ;
+	margin: 0px
+}
+.sibling li{
+	list-style-type: none;
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Lato Light'), local('Lato-Light'), url(https://fonts.gstatic.com/s/lato/v11/22JRxvfANxSmnAhzbFH8PgLUuEpTyoUstqEm5AMlJo4.woff2) format('woff2'), url(https://fonts.gstatic.com/s/lato/v11/kcf5uOXucLcbFOydGU24WALUuEpTyoUstqEm5AMlJo4.woff) format('woff');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v11/MDadn8DQ_3oT6kvnUq_2r_esZW2xOQ-xsNqO47m55DA.woff2) format('woff2'), url(https://fonts.gstatic.com/s/lato/v11/qIIYRU-oROkIk8vfvxw6QvesZW2xOQ-xsNqO47m55DA.woff) format('woff');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v11/MgNNr5y1C_tIEuLEmicLmwLUuEpTyoUstqEm5AMlJo4.woff2) format('woff2'), url(https://fonts.gstatic.com/s/lato/v11/qdgUG4U09HnJwhYI-uK18wLUuEpTyoUstqEm5AMlJo4.woff) format('woff');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Lato Italic'), local('Lato-Italic'), url(https://fonts.gstatic.com/s/lato/v11/1KWMyx7m-L0fkQGwYhWwuuvvDin1pK8aKteLpeZ5c0A.woff2) format('woff2'), url(https://fonts.gstatic.com/s/lato/v11/RYyZNoeFgb0l7W3Vu1aSWOvvDin1pK8aKteLpeZ5c0A.woff) format('woff');
+}
+
