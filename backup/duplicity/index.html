@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<title>Duplicity &#43; Amazon S3 &middot; Hugo plays with menus</title>
+	<style>
+    .related-links li {
+        display: list-item;
+        text-align: -webkit-match-parent;
+        margin-bottom:.3125rem
+    }
+    .related-links ul {
+        display: block;
+        list-style-type: disc;
+        -webkit-margin-before: 1em;
+        -webkit-margin-after: 1em;
+        -webkit-margin-start: 0px;
+        -webkit-margin-end: 0px;
+        -webkit-padding-start: 40px;
+    }
+	</style>
+    <link rel="stylesheet" href="http://vjeantet.github.io/hugo-menu-show/css.css" type="text/css" >
+
+</head>
+
+<body >
+<div class="header-main">
+	<h1><a href="http://vjeantet.github.io/hugo-menu-show/index.html" rel="home">Hugo plays with menus</a></h1>
+</div>
+
+<div class="aside">
+
+<style type="text/css">
+	aside li.active::after {
+		content: "<";
+	}
+</style>
+
+	
+<h1 >Navigation</h1>
+<ul>
+
+
+
+	<li  class="">
+    <a href="http://vjeantet.github.io/hugo-menu-show/amazon-aws/">Amazon AWS</a>
+	</li>
+        
+	    
+
+
+	<li  class="active">
+    <a href="http://vjeantet.github.io/hugo-menu-show/backup/">Backup</a>
+	</li>
+        
+        
+        
+	    
+	    <ul>
+	    
+	    
+	    
+	    </ul>
+	    
+	    
+	    
+
+
+	<li  class="">
+    <a href="http://vjeantet.github.io/hugo-menu-show/emails/">Emails</a>
+	</li>
+        
+	    
+
+</ul>
+
+
+</div>
+
+<div>
+    <h1 >Duplicity &#43; Amazon S3</h1>
+    <nav class="breadcrumb">
+        <strong>Breadcrumb</strong> : <a href="http://vjeantet.github.io/hugo-menu-show/">Home</a>  > <a href='http://vjeantet.github.io/hugo-menu-show/backup/'>Backup</a>  > Duplicity &#43; Amazon S3
+    </nav>
+    
+
+    
+    
+    
+    
+    <nav class="related-links sibling">
+        <h1>Sibling pages</h1>
+          
+          
+        
+        
+        
+    </nav>
+    
+
+
+    
+
+<p>In this article we will setup automated backup using Duplicity and Amazon S3.</p>
+
+<h1 id="installation:f9fbbc02022c03f9d848466806cbf330">Installation</h1>
+
+<p>Run following commands to install latest duplicity and python-boto library (duplicity needs it for Amazon S3).</p>
+
+<pre><code>apt-add-repository ppa:duplicity-team/ppa
+apt-get update
+apt-get install duplicity
+apt-get install python-pip
+pip install boto
+</code></pre>
+
+<h1 id="amazon-s3:f9fbbc02022c03f9d848466806cbf330">Amazon S3</h1>
+
+<h2 id="s3-bucket:f9fbbc02022c03f9d848466806cbf330">S3 Bucket</h2>
+
+
+    
+    
+
+
+
+</div>
+
+	
+</body>
+</html>

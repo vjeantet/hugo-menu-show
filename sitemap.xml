@@ -8,22 +8,17 @@
   </url>
   
   <url>
-    <loc>http://vjeantet.github.io/hugo-menu-show/amazon-aws/change-instance-type-in-autoscaling/</loc>
-    <lastmod>2015-07-15T22:17:00+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://vjeantet.github.io/hugo-menu-show/amazon-aws/</loc>
-    <lastmod>2015-07-15T22:17:00+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://vjeantet.github.io/hugo-menu-show/amazon-aws/autoscaling/</loc>
     <lastmod>2015-07-15T22:17:00+02:00</lastmod>
   </url>
   
   <url>
     <loc>http://vjeantet.github.io/hugo-menu-show/amazon-aws/elb/</loc>
+    <lastmod>2015-07-15T22:17:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://vjeantet.github.io/hugo-menu-show/amazon-aws/</loc>
     <lastmod>2015-07-15T22:17:00+02:00</lastmod>
   </url>
   
@@ -58,6 +53,11 @@
   </url>
   
   <url>
+    <loc>http://vjeantet.github.io/hugo-menu-show/emails/postfix-queue-management/</loc>
+    <lastmod>2015-07-15T22:17:00+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://vjeantet.github.io/hugo-menu-show/emails/dkim-with-postfix/</loc>
     <lastmod>2015-07-15T22:17:00+02:00</lastmod>
   </url>
@@ -73,7 +73,7 @@
   </url>
   
   <url>
-    <loc>http://vjeantet.github.io/hugo-menu-show/emails/postfix-queue-management/</loc>
+    <loc>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/pop/</loc>
     <lastmod>2015-07-15T22:17:00+02:00</lastmod>
   </url>
   
@@ -93,7 +93,7 @@
   </url>
   
   <url>
-    <loc>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/mail-server-testing/pop/</loc>
+    <loc>http://vjeantet.github.io/hugo-menu-show/amazon-aws/change-instance-type-in-autoscaling/</loc>
     <lastmod>2015-07-15T22:17:00+02:00</lastmod>
   </url>
   
@@ -103,12 +103,12 @@
   </url>
   
   <url>
-    <loc>http://vjeantet.github.io/hugo-menu-show/emails/</loc>
+    <loc>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/</loc>
     <lastmod>2015-07-15T22:17:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vjeantet.github.io/hugo-menu-show/emails/serversetup/</loc>
+    <loc>http://vjeantet.github.io/hugo-menu-show/emails/</loc>
     <lastmod>2015-07-15T22:17:00+02:00</lastmod>
   </url>
   
