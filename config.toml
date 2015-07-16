@@ -1,4 +1,4 @@
-baseurl = "http://vjeantet.github.io/hugo-menu-show"
+baseurl = "http://vjeantet.github.io/hugo-menu-show/"
 languageCode = "en-us"
 title = "Hugo plays with menus"
 
